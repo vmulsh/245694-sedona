@@ -28,8 +28,8 @@
     </header>
       <main>
         <section class="filter">
+         <form class="search-form" action="https://echo.htmlacademy.ru" method="post">
           <div class="filter-left">
-            <form class="infrastructure" action="https://echo.htmlacademy.ru" method="post">
               <h2>Инфраструктура:</h2>
               <input type="checkbox" name="pool" checked>
               <label for="pool">бассейн</label><br>
@@ -37,10 +37,8 @@
               <label for="parking">парковка</label><br>
               <input type="checkbox" name="wi-fi">
               <label for="wi-fi">wi-fi</label><br>
-            </form>
           </div>
           <div class="filter-middle">
-            <form class="hotel-type" action="https://echo.htmlacademy.ru" method="post">
               <h2>Тип жилья:</h2>
               <input type="checkbox" name="hotel" checked>
               <label for="hotel">отель</label><br>
@@ -48,10 +46,8 @@
               <label for="motel">мотель</label><br>
               <input type="checkbox" name="apps" checked>
               <label for="apps">апартаменты</label><br>
-            </form>
           </div>
           <div class="filter-right">
-            <form class="hotel-price" action="https://echo.htmlacademy.ru" method="post">
               <h2>Стоимость в сутки (Р):</h2>
               <table>
                 <tr>
@@ -60,9 +56,9 @@
                 </tr>
               </table>
               <input type="range" name="price-per-day">
-              <a href="#" class="show>"Показать</a>
-            </form>
+              <button type="submit" class="show">Показать</button>
           </div>
+         </form>
         </section>
         <section class="found-footer">
           <div class="found-footer-left">
