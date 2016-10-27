@@ -1,0 +1,35 @@
+/* Заготовка для подключения нестандартного шрифта
+
+@font-face {
+    font-family: 'PT-Sans-Regular';
+    src: url('../fonts/ptsans.eot');
+    src: url('../fonts/ptsans.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ptsans.woff') format('woff'),
+         url('../fonts/ptsans.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'PT-Sans-Bold';
+    src: url('../fonts/ptsansbold.eot');
+    src: url('../fonts/ptsansbold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ptsansbold.woff') format('woff'),
+         url('../fonts/ptsansbold.ttf') format('truetype');
+}
+*/
+
+body {
+  font-family: "PT-Sans-Regular", "Arial", sans-serif;
+  font-size: 14px;
+  line-height: 26px;
+  color: black;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.sedona-briefly {
+  font-family: "PT-Sans-Bold", "Arial", sans-serif;
+  font-size: 21px;
+  line-height: 26px;
+}
+.sedona-reasons {
+  color: #333333;
+}
