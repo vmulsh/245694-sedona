@@ -17,6 +17,7 @@
 */
 
 body {
+  background-color: #f2f2f2;
   font-family: "PT-Sans-Regular", "Arial", sans-serif;
   font-size: 14px;
   line-height: 26px;
@@ -32,4 +33,55 @@ body {
 }
 .sedona-reasons {
   color: #333333;
+}
+.main-header {
+/*net style*/
+  border-color: green;
+  outline: 2px solid green;
+  min-height: 56px;
+}
+.main-navigation {
+  background-color: white;
+  width: 1200px;
+  padding: 0;
+  margin: 0 auto;
+  /*net style*/
+  min-height: 56px;
+  border-color: red;
+  outline: 3px solid red;
+}
+.logo {
+  position: absolute;
+  width: 138px;
+  height: 70px;
+  left: 600px;
+}
+.full-width {
+  width: 1200px;
+  margin: 0 auto;
+  background-color: white;
+}
+.main {
+  background-color: white;
+}
+.main-sedona {
+  width: 1200px;
+  height: 508px;
+  background-color: white;
+  background: #f2f2f2 url("../img/sedona_background.jpg") no-repeat;
+  margin-bottom: 60px;
+  /*net style*/
+  border-color: yellow;
+  outline: 3px solid yellow;
+}
+div .welcome,
+div .gorgeous,
+div .sedona,
+div .reason {
+  display: none;
+}
+div .main-sedona img {
+  position: relative;
+  top: 78px;
+  left: 371px;
 }
