@@ -24,19 +24,22 @@ body {
   color: black;
   font-weight: normal;
   text-transform: uppercase;
+  padding: 0;
+  margin: 0;
 }
-
-.sedona-briefly {
-  font-family: "PT-Sans-Bold", "Arial", sans-serif;
-  font-size: 21px;
-  line-height: 26px;
+.clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
 }
-.sedona-reasons {
-  color: #333333;
+.main-align {
+  margin: 0 auto;
+  /*net style*/
+    outline: 12px solid black;
 }
 .main-header {
+  position: relative;
 /*net style*/
-  border-color: green;
   outline: 2px solid green;
   min-height: 56px;
 }
@@ -44,34 +47,35 @@ body {
   background-color: white;
   width: 1200px;
   padding: 0;
-  margin: 0 auto;
+  margin: 0 auto; /* У меня центруется только с этим параметром. Если убрать - не центруется. Но я так понимаю, центровать должен .main-align???? */
   /*net style*/
   min-height: 56px;
-  border-color: red;
   outline: 3px solid red;
 }
 .logo {
   position: absolute;
   width: 138px;
   height: 70px;
-  left: 600px;
+  left: 50%;
+  margin-left: -74px;
 }
 .full-width {
-  width: 1200px;
-  margin: 0 auto;
+  max-width: 1200px;
+  min-width: 768px;
   background-color: white;
+  /*net style*/
+  outline: 3px solid green;
 }
 .main {
   background-color: white;
 }
-.main-sedona {
-  width: 1200px;
+.main-sedona { /*Все равно остаются маргины между блоками....*/
+  max-width: 1200px;
+  min-width: 768px;
   height: 508px;
-  background-color: white;
-  background: #f2f2f2 url("../img/sedona_background.jpg") no-repeat;
-  margin-bottom: 60px;
+  background: #ffffff url("../img/sedona_background.jpg") no-repeat;
+  padding-bottom: 50px;
   /*net style*/
-  border-color: yellow;
   outline: 3px solid yellow;
 }
 div .welcome,
@@ -84,4 +88,194 @@ div .main-sedona img {
   position: relative;
   top: 78px;
   left: 371px;
+}
+.sub-sedona {
+  padding-top: 10px;
+  text-align: center;
+  padding-bottom: 53px;
+}
+.sedona-briefly {
+  font-family: "PT-Sans-Bold", "Arial", sans-serif;
+  font-size: 21px;
+  line-height: 26px;
+  margin-bottom: 30px;
+  padding-left: 282px;
+  padding-right: 282px;
+}
+.sedona-reasons {
+  color: #333333;
+}
+
+/*Для класса .benefits не придумал, что написать*/
+.benefits {}
+
+.city-block {
+  width: 1200px;
+  height: 256px;
+  color: white;
+  line-height: 21px;
+  text-align: center;
+  /*net style*/
+  outline: 3px solid red;
+  min-height: 256px;
+  background-color: #81b3d2;
+}
+.one-third-width {
+  width: 33.3%;
+}
+.two-third-width {
+  width: 66.7%;
+}
+.city-block > .one-third-width {
+  float: left;
+}
+.city-block > .two-third-width {
+  float: right;
+}
+.city-block-title { /*Высчитывал по фотошопу px, может когда добавлю шрифт будет нормально? Если раскомментировать маргины - вылезает*/
+  margin-top: 56px;
+  margin-bottom: 25px;
+}
+.city-block-number {
+  margin-bottom: 25px;
+}
+.city-block-descr {
+  padding-left: 45px;
+  padding-right: 45px;
+  margin-bottom: 45px; /*Вообще должно быть столько же, сколько сверху минус 3,5 на высоту шрифта. Но если ставить 52, то вылезает ниже, чем блок.*/
+}
+
+.features-block {
+  width: 1200px;
+  /*height: 256px;*/
+  line-height: 21px;
+  text-align: center;
+  background-color: white;
+  /*net style*/
+  outline: 3px solid blue;
+  min-height: 330px;
+}
+.features-block-item {
+/*  display: inline-block; Этот вариант не получается запустить... и не надо наверное?*/
+  float: left;
+  width: 33.33%;
+  /*net style*/
+  outline: 1px solid yellow;
+  /*min-height: 330px;*/
+}
+.features-block-house {
+  background-image: url("../img/house.png");
+  background-repeat: no-repeat;
+  background-position: 160px 60px;
+}
+.features-block-burger {
+  background-image: url("../img/burger.png");
+  background-repeat: no-repeat;
+  background-position: 160px 60px;
+}
+.features-block-gift {
+  background-image: url("../img/gift.png");
+  background-repeat: no-repeat;
+  background-position: 166px 60px;
+}
+.features-block-title {
+  margin-top: 165px;
+  margin-bottom: 28px;
+}
+.features-block-descr { /*Вроде правильно рассчитал, но текст не совсем так переносится, как в исходнике...*/
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
+.diablo-block {
+  width: 1200px;
+  height: 256px;
+  color: white;
+  line-height: 21px;
+  text-align: center;
+  /*net style*/
+  outline: 3px solid red;
+  min-height: 256px;
+  background-color: #81b3d2;
+}
+.diablo-block > .two-third-width {
+  float: left;
+}
+.diablo-block > .one-third-width {
+  float: right;
+}
+.diablo-block-title { /*Высчитывал по фотошопу px, может когда добавлю шрифт будет нормально? Если раскомментировать маргины - вылезает*/
+  margin-top: 56px;
+  margin-bottom: 25px;
+}
+.diablo-block-number {
+  margin-bottom: 25px;
+}
+.diablo-block-descr {
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-bottom: 45px; /*Вообще должно быть столько же, сколько сверху минус 3,5 на высоту шрифта. Но если ставить 52, то вылезает ниже, чем блок.*/
+}
+
+.reasons-block {
+  width: 1200px;
+  /*height: 256px;*/
+  line-height: 21px;
+  text-align: center;
+  background-color: white;
+  /*net style*/
+  outline: 3px solid blue;
+  min-height: 256px;
+}
+.reasons-block > .one-third-width {
+  float: left;
+  width: 33.33%;
+  /*net style*/
+  outline: 1px solid yellow;
+  /*min-height: 330px;*/
+}
+.reasons-block-title { /*Высчитывал по фотошопу px, может когда добавлю шрифт будет нормально? Если раскомментировать маргины - вылезает*/
+  margin-top: 56px;
+  margin-bottom: 25px;
+}
+.reasons-block-number {
+  margin-bottom: 25px;
+}
+.reasons-block-descr {
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-bottom: 45px;
+}
+
+.interested-in {
+  padding-top: 57px;
+  /*net style*/
+  outline: 3px solid green;
+  min-height: 292px;
+}
+.interested {
+  font-family: "PT-Sans-Bold", "Arial", sans-serif;
+  font-size: 30px;
+  line-height: 24px;
+  text-align: center;
+}
+.interested-dates {
+  line-height: 24px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+/*Как правильно сделать кнопку пока не знаю.. + footer налезает на картинку, делая ее прозрачной... тоже пока не думал, как это реализоватиь*/
+.main-footer {
+  position: absolute;
+  width: 1200px;
+/*net style*/
+  outline: 2px solid red;
+  min-height: 56px;
+}
+.main-footer > .one-third-width {
+  float: left;
+  width: 33.33%;
+  /*net style*/
+  outline: 1px solid yellow;
+  /*min-height: 330px;*/
 }
