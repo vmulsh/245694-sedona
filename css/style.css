@@ -1,24 +1,6 @@
-/* Заготовка для подключения нестандартного шрифта
-
-@font-face {
-    font-family: 'PT-Sans-Regular';
-    src: url('../fonts/ptsans.eot');
-    src: url('../fonts/ptsans.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/ptsans.woff') format('woff'),
-         url('../fonts/ptsans.ttf') format('truetype');
-}
-@font-face {
-    font-family: 'PT-Sans-Bold';
-    src: url('../fonts/ptsansbold.eot');
-    src: url('../fonts/ptsansbold.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/ptsansbold.woff') format('woff'),
-         url('../fonts/ptsansbold.ttf') format('truetype');
-}
-*/
-
 body {
   background-color: #f2f2f2;
-  font-family: "PT-Sans-Regular", "Arial", sans-serif;
+  font-family: "PT Sans", "Arial", sans-serif;
   font-size: 14px;
   line-height: 26px;
   color: black;
@@ -32,13 +14,20 @@ body {
       display: table;
       clear: both;
 }
+
+/*CSS for index.html*/
+
 .main-align {
+  max-width: 1200px;
+  min-width: 768px;
   margin: 0 auto;
   /*net style*/
-    outline: 12px solid black;
+    outline: 5px solid black;
 }
 .main-header {
   position: relative;
+  background-color: white;
+  padding-bottom: 1px; /*чтобы убрать отступ*/
 /*net style*/
   outline: 2px solid green;
   min-height: 56px;
@@ -95,7 +84,7 @@ div .main-sedona img {
   padding-bottom: 53px;
 }
 .sedona-briefly {
-  font-family: "PT-Sans-Bold", "Arial", sans-serif;
+  font-family: "PT-Sans-Bold", "Arial", sans-serif; /*исправить на жирный затем*/
   font-size: 21px;
   line-height: 26px;
   margin-bottom: 30px;
@@ -254,7 +243,7 @@ div .main-sedona img {
   min-height: 292px;
 }
 .interested {
-  font-family: "PT-Sans-Bold", "Arial", sans-serif;
+  font-family: "PT-Sans-Bold", "Arial", sans-serif; /*исправить на жирный затем*/
   font-size: 30px;
   line-height: 24px;
   text-align: center;
@@ -278,4 +267,107 @@ div .main-sedona img {
   /*net style*/
   outline: 1px solid yellow;
   /*min-height: 330px;*/
+}
+
+
+/*CSS for catalog.html*/
+
+form.filter{
+  width: 1200px;
+  height: 189px; /* = 217 - 28 px*/
+  background-color: white;
+  background-image: url("../img/catalog_background.jpg");
+  background-repeat: no-repeat;
+  padding-top: 28px;
+  /*net style*/
+  outline: 2px solid red;
+}
+.filter-left {
+  float: left;
+  margin-left: 73px;
+}
+.filter-middle {
+  float: left;
+}
+.filter-right {
+  float: right;
+  margin-right: 73px;
+}
+.found-footer {
+  background-color: white;
+  padding-top: 33px;
+  /*net style*/
+  outline: 2px solid blue;
+  min-height: 87px;
+}
+.found-footer-left {
+  float: left;
+  padding-left: 73px;
+}
+.found-footer-right {
+  float: right;
+  padding-right: 73px;
+}
+.sorting a {
+  display: inline-block;
+}
+
+.found-hotels {
+  background-color: white;
+  /*net style*/
+  outline: 2px solid red;
+}
+.found-hotels-amara {
+  position: relative;
+  padding-top: 8px;
+  padding-bottom: 30px;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  /*net style*/
+  /*outline: 2px solid blue;*/
+}
+.found-hotels-desert {
+  position: relative;
+  padding-top: 8px;
+  padding-bottom: 30px;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  /*net style*/
+  /*outline: 2px solid blue;*/
+}
+.found-hotels-villas {
+  position: relative;
+  padding-top: 8px;
+  padding-bottom: 30px;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  /*net style*/
+  /*outline: 2px solid blue;*/
+}
+.found-hotels-left {
+  float: left;
+  padding-left: 73px;
+}
+.found-hotels-right {
+  float: right;
+  padding-right: 73px;
+}
+.found-hotels-link {
+  position: absolute;
+  top: 30px;
+}
+.hotels-block {
+  padding-left: 165px;
+  /*net style*/
+  outline: 2px solid red;
+}
+.found-hotels-title {
+  font-family: "PT-Sans-Bold", "Arial", sans-serif; /*исправить на жирный затем*/
+  font-size: 21px;
+}
+.hotels-type-block {
+}
+.found-hotels-type {
+}
+.found-hotels-price {
 }
