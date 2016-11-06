@@ -21,12 +21,12 @@ body {
   max-width: 1200px;
   min-width: 768px;
   margin: 0 auto;
+  background-color: white;
   /*net style*/
     outline: 5px solid black;
 }
 .main-header {
   position: relative;
-  background-color: white;
   padding-bottom: 1px; /*чтобы убрать отступ*/
 /*net style*/
   outline: 2px solid green;
@@ -34,9 +34,7 @@ body {
 }
 .main-navigation {
   background-color: white;
-  width: 1200px;
   padding: 0;
-  margin: 0 auto; /* У меня центруется только с этим параметром. Если убрать - не центруется. Но я так понимаю, центровать должен .main-align???? */
   /*net style*/
   min-height: 56px;
   outline: 3px solid red;
@@ -49,20 +47,16 @@ body {
   margin-left: -74px;
 }
 .full-width {
-  max-width: 1200px;
-  min-width: 768px;
-  background-color: white;
   /*net style*/
   outline: 3px solid green;
 }
 .main {
-  background-color: white;
 }
-.main-sedona { /*Все равно остаются маргины между блоками....*/
-  max-width: 1200px;
-  min-width: 768px;
+.main-sedona {
+  position: relative;
   height: 508px;
-  background: #ffffff url("../img/sedona_background.jpg") no-repeat;
+  background: #ffffff url("../img/sedona_background.jpg") no-repeat 50% 50%;
+  background-size: cover;
   padding-bottom: 50px;
   /*net style*/
   outline: 3px solid yellow;
@@ -74,22 +68,22 @@ div .reason {
   display: none;
 }
 div .main-sedona img {
-  position: relative;
+  position: absolute;
   top: 78px;
-  left: 371px;
+  left: 50%;
+  margin: 0 0 0 -229px;
 }
 .sub-sedona {
   padding-top: 10px;
   text-align: center;
-  padding-bottom: 53px;
+  max-width: 500px;
+  margin: 0 auto 53px;
 }
 .sedona-briefly {
   font-family: "PT-Sans-Bold", "Arial", sans-serif; /*исправить на жирный затем*/
   font-size: 21px;
   line-height: 26px;
   margin-bottom: 30px;
-  padding-left: 282px;
-  padding-right: 282px;
 }
 .sedona-reasons {
   color: #333333;
@@ -99,8 +93,7 @@ div .main-sedona img {
 .benefits {}
 
 .city-block {
-  width: 1200px;
-  height: 256px;
+  position: relative;
   color: white;
   line-height: 21px;
   text-align: center;
@@ -114,14 +107,20 @@ div .main-sedona img {
 }
 .two-third-width {
   width: 66.7%;
+  overflow: hidden;
 }
 .city-block > .one-third-width {
   float: left;
 }
 .city-block > .two-third-width {
-  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background: url("../img/picture_of_sedona1_768.jpg") no-repeat 50% 50%;
+  background-size: cover;
 }
-.city-block-title { /*Высчитывал по фотошопу px, может когда добавлю шрифт будет нормально? Если раскомментировать маргины - вылезает*/
+.city-block-title {
   margin-top: 56px;
   margin-bottom: 25px;
 }
@@ -131,21 +130,17 @@ div .main-sedona img {
 .city-block-descr {
   padding-left: 45px;
   padding-right: 45px;
-  margin-bottom: 45px; /*Вообще должно быть столько же, сколько сверху минус 3,5 на высоту шрифта. Но если ставить 52, то вылезает ниже, чем блок.*/
+  margin-bottom: 45px;
 }
 
 .features-block {
-  width: 1200px;
-  /*height: 256px;*/
   line-height: 21px;
   text-align: center;
-  background-color: white;
   /*net style*/
   outline: 3px solid blue;
   min-height: 330px;
 }
 .features-block-item {
-/*  display: inline-block; Этот вариант не получается запустить... и не надо наверное?*/
   float: left;
   width: 33.33%;
   /*net style*/
@@ -171,14 +166,13 @@ div .main-sedona img {
   margin-top: 165px;
   margin-bottom: 28px;
 }
-.features-block-descr { /*Вроде правильно рассчитал, но текст не совсем так переносится, как в исходнике...*/
+.features-block-descr {
   padding-left: 48px;
   padding-right: 48px;
 }
 
 .diablo-block {
-  width: 1200px;
-  height: 256px;
+  position: relative;
   color: white;
   line-height: 21px;
   text-align: center;
@@ -188,12 +182,17 @@ div .main-sedona img {
   background-color: #81b3d2;
 }
 .diablo-block > .two-third-width {
-  float: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%; /*Почему без высоты не работает??*/
+  background: url("../img/picture_of_sedona2_768.jpg") no-repeat 50% 50%;
+  background-size: cover;
 }
 .diablo-block > .one-third-width {
   float: right;
 }
-.diablo-block-title { /*Высчитывал по фотошопу px, может когда добавлю шрифт будет нормально? Если раскомментировать маргины - вылезает*/
+.diablo-block-title {
   margin-top: 56px;
   margin-bottom: 25px;
 }
@@ -203,15 +202,12 @@ div .main-sedona img {
 .diablo-block-descr {
   padding-left: 30px;
   padding-right: 30px;
-  margin-bottom: 45px; /*Вообще должно быть столько же, сколько сверху минус 3,5 на высоту шрифта. Но если ставить 52, то вылезает ниже, чем блок.*/
+  margin-bottom: 45px;
 }
 
 .reasons-block {
-  width: 1200px;
-  /*height: 256px;*/
   line-height: 21px;
   text-align: center;
-  background-color: white;
   /*net style*/
   outline: 3px solid blue;
   min-height: 256px;
@@ -221,9 +217,8 @@ div .main-sedona img {
   width: 33.33%;
   /*net style*/
   outline: 1px solid yellow;
-  /*min-height: 330px;*/
 }
-.reasons-block-title { /*Высчитывал по фотошопу px, может когда добавлю шрифт будет нормально? Если раскомментировать маргины - вылезает*/
+.reasons-block-title {
   margin-top: 56px;
   margin-bottom: 25px;
 }
@@ -253,10 +248,7 @@ div .main-sedona img {
   text-align: center;
   margin-bottom: 50px;
 }
-/*Как правильно сделать кнопку пока не знаю.. + footer налезает на картинку, делая ее прозрачной... тоже пока не думал, как это реализоватиь*/
 .main-footer {
-  position: absolute;
-  width: 1200px;
 /*net style*/
   outline: 2px solid red;
   min-height: 56px;
@@ -268,14 +260,18 @@ div .main-sedona img {
   outline: 1px solid yellow;
   /*min-height: 330px;*/
 }
-
+.interactive-map img {
+  width: 100%;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
+}
 
 /*CSS for catalog.html*/
 
 form.filter{
   width: 1200px;
   height: 189px; /* = 217 - 28 px*/
-  background-color: white;
   background-image: url("../img/catalog_background.jpg");
   background-repeat: no-repeat;
   padding-top: 28px;
