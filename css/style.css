@@ -1,12 +1,19 @@
 body {
   background-color: #f2f2f2;
   font-family: "PT Sans", "Arial", sans-serif;
+  font-weight: normal;
   font-size: 14px;
   line-height: 26px;
   color: black;
   font-weight: normal;
   text-transform: uppercase;
   padding: 0;
+  margin: 0;
+}
+p {
+  margin: 0; /*В normalize.css добавлены маргины сверху и снизу для p. Обнуляем, мне они мешают*/
+}
+h2 {
   margin: 0;
 }
 .clearfix::after {
@@ -17,70 +24,90 @@ body {
 
 /*CSS for index.html*/
 
-.main-align {
+.main-align { /* Блок-центровщик */
+  position: relative;
   max-width: 1200px;
   min-width: 768px;
   margin: 0 auto;
   background-color: white;
-  /*net style*/
-    outline: 5px solid black;
 }
+
+/*Шапка и меню*/
+
 .main-header {
   position: relative;
-  padding-bottom: 1px; /*чтобы убрать отступ*/
-/*net style*/
-  outline: 2px solid green;
-  min-height: 56px;
 }
 .main-navigation {
   background-color: white;
   padding: 0;
-  /*net style*/
-  min-height: 56px;
-  outline: 3px solid red;
 }
-.logo {
+.main-navigation ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0; /*Обнуляем пробелы между пунктами через размер шрифта, в li восстанавливаем*/
+}
+.main-navigation li {
+  display: inline-block;
+  width: 20%;
+  vertical-align: top;
+  text-align: center;
+  font-size: 14px;
+  padding-top: 15px;
+  padding-bottom: 15px; /*ВОПРОС Почему остается зазор между хедером и основным блоком??*/
+}
+.main-navigation li:nth-child(2) { /*Между 2 и 3 элементами меню оставляем место для логотипа*/
+  margin-right: 20%;
+}
+.main-navigation a {
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+}
+.main-navigation li:hover a { /*Ссылка при наведении мышки*/
+  color: #81b3d2;
+}
+.logo { /* Логотип */
   position: absolute;
   width: 138px;
   height: 70px;
   left: 50%;
-  margin-left: -74px;
+  margin-left: -74px; /*Смещаем влево на половину рисунка, чтобы оставить по центру, т.к. left выставляет левый край логотипа на середину*/
+  z-index: 10;
 }
-.full-width {
-  /*net style*/
-  outline: 3px solid green;
+
+/* Основной блок */
+
+.full-width { /*ВОПРОС Получается бесполезный класс раз есть центровщик?*/
 }
 .main {
 }
 .main-sedona {
   position: relative;
-  height: 508px;
+  height: 508px; /*ВОПРОС надо избавиться от высоты здесь?*/
   background: #ffffff url("../img/sedona_background.jpg") no-repeat 50% 50%;
   background-size: cover;
-  padding-bottom: 50px;
-  /*net style*/
-  outline: 3px solid yellow;
+  margin-bottom: 57px;
 }
 div .welcome,
 div .gorgeous,
 div .sedona,
 div .reason {
-  display: none;
+  visibility: hidden; /*Скрываем текст из верстки, чтобы заменить его на картинку*/
 }
-div .main-sedona img {
+div .main-sedona img { /*Картинка с текстом поверх фона с горами. Фон качество 50% jpg, текст png*/
   position: absolute;
   top: 78px;
-  left: 50%;
+  left: 50%; /*Для масштабирования*/
   margin: 0 0 0 -229px;
 }
 .sub-sedona {
-  padding-top: 10px;
   text-align: center;
   max-width: 500px;
-  margin: 0 auto 53px;
+  margin: 0 auto 53px; /*53px маргин снизу*/
 }
 .sedona-briefly {
-  font-family: "PT-Sans-Bold", "Arial", sans-serif; /*исправить на жирный затем*/
+  font-weight: bold;
   font-size: 21px;
   line-height: 26px;
   margin-bottom: 30px;
@@ -94,13 +121,10 @@ div .main-sedona img {
 
 .city-block {
   position: relative;
+  background-color: #81b3d2;
   color: white;
   line-height: 21px;
   text-align: center;
-  /*net style*/
-  outline: 3px solid red;
-  min-height: 256px;
-  background-color: #81b3d2;
 }
 .one-third-width {
   width: 33.3%;
@@ -121,6 +145,8 @@ div .main-sedona img {
   background-size: cover;
 }
 .city-block-title {
+  font-size: 21px;
+  font-weight: bold;
   margin-top: 56px;
   margin-bottom: 25px;
 }
@@ -136,50 +162,44 @@ div .main-sedona img {
 .features-block {
   line-height: 21px;
   text-align: center;
-  /*net style*/
-  outline: 3px solid blue;
-  min-height: 330px;
+  margin-bottom: 85px;
 }
 .features-block-item {
   float: left;
   width: 33.33%;
-  /*net style*/
-  outline: 1px solid yellow;
-  /*min-height: 330px;*/
 }
 .features-block-house {
   background-image: url("../img/house.png");
   background-repeat: no-repeat;
-  background-position: 160px 60px;
+  background-position: 50% 60px;
 }
 .features-block-burger {
   background-image: url("../img/burger.png");
   background-repeat: no-repeat;
-  background-position: 160px 60px;
+  background-position: 50% 60px;
 }
 .features-block-gift {
   background-image: url("../img/gift.png");
   background-repeat: no-repeat;
-  background-position: 166px 60px;
+  background-position: 50% 60px;
 }
 .features-block-title {
+  font-size: 21px;
+  font-weight: bold;
   margin-top: 165px;
   margin-bottom: 28px;
 }
-.features-block-descr {
-  padding-left: 48px;
-  padding-right: 48px;
+.features-block-descr { /*ВОПРОС На 768 текст отображается не так, как в макете. Как исправить?*/
+  max-width: 286px;
+  padding-left: 46px;
+  padding-right: 46px;
 }
-
 .diablo-block {
   position: relative;
+  background-color: #81b3d2;
   color: white;
   line-height: 21px;
   text-align: center;
-  /*net style*/
-  outline: 3px solid red;
-  min-height: 256px;
-  background-color: #81b3d2;
 }
 .diablo-block > .two-third-width {
   position: absolute;
@@ -193,6 +213,8 @@ div .main-sedona img {
   float: right;
 }
 .diablo-block-title {
+  font-size: 21px;
+  font-weight: bold;
   margin-top: 56px;
   margin-bottom: 25px;
 }
@@ -208,17 +230,15 @@ div .main-sedona img {
 .reasons-block {
   line-height: 21px;
   text-align: center;
-  /*net style*/
-  outline: 3px solid blue;
-  min-height: 256px;
+  background-color: #eeeeee;
 }
 .reasons-block > .one-third-width {
   float: left;
   width: 33.33%;
-  /*net style*/
-  outline: 1px solid yellow;
 }
 .reasons-block-title {
+  font-size: 21px;
+  font-weight: bold;
   margin-top: 56px;
   margin-bottom: 25px;
 }
@@ -232,33 +252,63 @@ div .main-sedona img {
 }
 
 .interested-in {
-  padding-top: 57px;
-  /*net style*/
-  outline: 3px solid green;
-  min-height: 292px;
+  padding-top: 60px;
 }
 .interested {
-  font-family: "PT-Sans-Bold", "Arial", sans-serif; /*исправить на жирный затем*/
+  font-weight: bold;
   font-size: 30px;
   line-height: 24px;
   text-align: center;
 }
 .interested-dates {
+  padding-top: 43px;
   line-height: 24px;
   text-align: center;
   margin-bottom: 50px;
 }
-.main-footer {
-/*net style*/
-  outline: 2px solid red;
-  min-height: 56px;
+.hotel-search-button {
+
 }
-.main-footer > .one-third-width {
+.main-footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.9);
+  /*net style*/
+  outline: 2px solid red;
+}
+.one-third-width {
   float: left;
   width: 33.33%;
+  text-align: center;
   /*net style*/
   outline: 1px solid yellow;
   /*min-height: 330px;*/
+}
+.visitsedona {
+  display: inline-block;
+  color: black;
+  font-size: 21px;
+  line-height: 26px;
+  text-decoration: none;
+  margin-top: 47px;
+  margin-bottom: 47px;
+}
+.social {
+  display: inline-block;
+  vertical-align: top;
+  background: black;
+  font-size: 0;
+  vertical-align: top;
+  text-decoration: none;
+  margin-top: 36px;
+  margin-bottom: 36px;
+  margin-right: 6px;
+  width: 46px;
+  height: 48px;
+  /*net style*/
+  outline: 3px solid red;
 }
 .interactive-map img {
   width: 100%;
@@ -270,8 +320,6 @@ div .main-sedona img {
 /*CSS for catalog.html*/
 
 form.filter{
-  width: 1200px;
-  height: 189px; /* = 217 - 28 px*/
   background-image: url("../img/catalog_background.jpg");
   background-repeat: no-repeat;
   padding-top: 28px;
@@ -280,13 +328,16 @@ form.filter{
 }
 .filter-left {
   float: left;
+  max-width: 241px;
   margin-left: 73px;
 }
 .filter-middle {
   float: left;
+  max-width: 241px;
 }
 .filter-right {
   float: right;
+  max-width: 330px;
   margin-right: 73px;
 }
 .found-footer {
@@ -358,7 +409,7 @@ form.filter{
   outline: 2px solid red;
 }
 .found-hotels-title {
-  font-family: "PT-Sans-Bold", "Arial", sans-serif; /*исправить на жирный затем*/
+  font-weight: bold;
   font-size: 21px;
 }
 .hotels-type-block {
