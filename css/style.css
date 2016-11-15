@@ -10,13 +10,13 @@ body {
   padding: 0;
   margin: 0;
 }
-p {
+p,
+h2,
+input {
   margin: 0; /*В normalize.css добавлены маргины сверху и снизу для p. Обнуляем, мне они мешают*/
 }
-h2 {
-  margin: 0;
-}
-.clearfix::after {
+
+.clearfix::after { /*ВОПРОС Как все-таки правильно с 1 двоеточием или двумя??*/
       content: "";
       display: table;
       clear: both;
@@ -54,7 +54,7 @@ h2 {
   text-align: center;
   font-size: 14px;
   padding-top: 15px;
-  padding-bottom: 15px; /*ВОПРОС Почему остается зазор между хедером и основным блоком??*/
+  padding-bottom: 15px;
 }
 .main-navigation li:nth-child(2) { /*Между 2 и 3 элементами меню оставляем место для логотипа*/
   margin-right: 20%;
@@ -63,9 +63,23 @@ h2 {
   font-weight: bold;
   color: black;
   text-decoration: none;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
-.main-navigation li:hover a { /*Ссылка при наведении мышки*/
+.main-navigation a:hover { /*Ссылка при наведении мышки*/
   color: #81b3d2;
+}
+.main-navigation a:active { /*Ссылка при нажатии*/
+  color: rgba(0, 0, 0, 0.3);
+}
+.main-navigation a.active { /*Ссылка при нажатии*/
+  color: #766357;
+}
+.main-navigation a.active:hover { /*Ссылка при нажатии*/
+  color: #604e43;
+}
+.main-navigation a.active:active { /*Ссылка при нажатии*/
+  color: rgba(118, 99, 87, 0.3);
 }
 .logo { /* Логотип */
   position: absolute;
@@ -99,7 +113,7 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   position: absolute;
   top: 78px;
   left: 50%; /*Для масштабирования*/
-  margin: 0 0 0 -229px;
+  margin-left: -229px;
 }
 .sub-sedona {
   text-align: center;
@@ -151,11 +165,31 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   margin-bottom: 25px;
 }
 .city-block-number {
+  position: relative;
   margin-bottom: 25px;
 }
+.city-block-number::before {
+  position: absolute;
+  content: "";
+  bottom: 9px;
+  left: 50%;
+  margin-left: -25px; /*весь блок + 16px*/
+  width: 9px;
+  height: 2px;
+  background-color: white;
+}
+.city-block-number::after {
+  position: absolute;
+  content: "";
+  bottom: 9px;
+  margin-left: 3px;
+  width: 9px;
+  height: 2px;
+  background-color: white;
+}
 .city-block-descr {
-  padding-left: 45px;
-  padding-right: 45px;
+  padding-left: 50px;
+  padding-right: 50px;
   margin-bottom: 45px;
 }
 
@@ -193,6 +227,7 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   max-width: 286px;
   padding-left: 46px;
   padding-right: 46px;
+  color: #333333;
 }
 .diablo-block {
   position: relative;
@@ -219,11 +254,31 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   margin-bottom: 25px;
 }
 .diablo-block-number {
+  position: relative;
   margin-bottom: 25px;
 }
+.diablo-block-number::before {
+  position: absolute;
+  content: "";
+  bottom: 9px;
+  left: 50%;
+  margin-left: -25px; /*весь блок + 16px*/
+  width: 9px;
+  height: 2px;
+  background-color: white;
+}
+.diablo-block-number::after {
+  position: absolute;
+  content: "";
+  bottom: 9px;
+  margin-left: 3px;
+  width: 9px;
+  height: 2px;
+  background-color: white;
+}
 .diablo-block-descr {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 40px;
+  padding-right: 40px;
   margin-bottom: 45px;
 }
 
@@ -243,48 +298,260 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   margin-bottom: 25px;
 }
 .reasons-block-number {
+  position: relative;
   margin-bottom: 25px;
+  color: #333333;
+}
+.reasons-block-number::before {
+  position: absolute;
+  content: "";
+  bottom: 9px;
+  left: 50%;
+  margin-left: -25px; /*весь блок + 16px*/
+  width: 9px;
+  height: 2px;
+  background-color: #a8a8a8;
+}
+.reasons-block-number::after {
+  position: absolute;
+  content: "";
+  bottom: 9px;
+  margin-left: 3px;
+  width: 9px;
+  height: 2px;
+  background-color: #a8a8a8;
 }
 .reasons-block-descr {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 60px;
+  padding-right: 60px;
   margin-bottom: 45px;
+  color: #333333;
 }
 
 .interested-in {
+  /*position: relative;*/ /*ВОПРОС И без него форма встает на свое место почему-то...*/
   padding-top: 60px;
+  text-align: center;
 }
 .interested {
   font-weight: bold;
   font-size: 30px;
   line-height: 24px;
-  text-align: center;
 }
 .interested-dates {
   padding-top: 43px;
   line-height: 24px;
-  text-align: center;
   margin-bottom: 50px;
 }
-.hotel-search-button {
-
+.hotel-search-button { /*Кнопка поиска отеля, оформлена как ссылка*/
+  display: inline-block;
+  width: 568px;
+  background-color: #766357;
+  color: white;
+  font-size: 21px;
+  line-height: 26px;
+  text-decoration: none;
+  font-weight: bold;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
+.hotel-search { /*Форма для поиска*/
+  position: absolute;
+  width: 568px;
+  left: 50%;
+  margin-left: -284px;
+  background-color: white;
+  text-align: left;
+}
+.search-form {
+}
+.search-form fieldset { /*Убираем границу у fieldset*/
+  /*border: none;*/
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.search-form label { /*Настраиваем отображение подписей форм*/
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: bold;
+}
+
+.search-form input[type=number]::-webkit-inner-spin-button, /*Убираем лишние стрелочки на полях типа number в форме поиска*/
+.search-form input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.search-form input { /*Настраиваем форму для ввода данных*/
+  /*float: right;*/
+  font: inherit;
+  color: inherit;
+  text-transform: inherit;
+  font-weight: bold;
+  line-height: 26px;
+  width: 330px;
+  padding-left: 15px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin: 0;
+  margin-right: 55px;
+/*  margin-bottom: 29px;*/
+  background-color: #f2f2f2;
+  border: 0;
+}
+.search-form input:hover {
+  background-color: #ebebeb;
+}
+.search-form input:active,
+.search-form input:focus {
+  background-color: white;
+}
+.search-form input[type=number] { /*Редактируем форму с цифрами*/
+  float: left;
+  width: 20px; /*Всего 114, на плюс и минус по 40, итого 114 - 80 = 34*/
+  margin: 0;
+  padding-left: 14px;;
+}
+.date-in-field label {
+  float: left;
+  margin-left: 60px;
+  margin-top: 64px;
+}
+.date-in-field input {
+  position: relative;
+  float: right;
+  margin-top: 55px;
+}
+.date-in-field:after, /*calendar создаем календарь в конце input*/
+.date-out-field:after {
+  content: "";
+  position: absolute;
+  right: 65px;
+  bottom: 9px;
+  width: 21px;
+  height: 22px;
+  background: transparent url("../img/calendar_normal.png") no-repeat 0 0;
+  cursor: pointer;
+}
+.date-in-field:hover:after,
+.date-out-field:hover:after {
+  content: "";
+  position: absolute;
+  right: 65px;
+  bottom: 9px;
+  width: 21px;
+  height: 22px;
+  background: transparent url("../img/calendar_hvr.png") no-repeat 0 0;
+}
+.date-in-field:active:after,
+.date-out-field:active:after {
+  content: "";
+  position: absolute;
+  right: 65px;
+  bottom: 9px;
+  width: 21px;
+  height: 22px;
+  background: transparent url("../img/calendar_down.png") no-repeat 0 0;
+}
+.date-out-field label {
+  float: left;
+  margin-left: 60px;
+  margin-top: 37px;
+}
+.date-out-field input {
+  float: right;
+  margin-top: 30px;
+}
+.adults-child-field .align-left {
+  float: left;
+  margin-left: 167px;
+  margin-top: 30px;
+}
+.adults-child-field .align-left label { /*Позиционируем относительно общего блока fieldset, чтобы выровнять текст по одной линии*/
+  position: absolute;
+  left: 60px;
+  top: 38px;
+}
+.adults-child-field .align-right {
+  position: relative;
+  float: right;
+  margin-right: 55px;
+  margin-top: 30px;
+}
+.adults-child-field .align-right label { /*Позиционируем относительно строки input*/
+  position: absolute;
+  left: -65px;
+  top: 9px;
+}
+
+.adults button, /*plus button & minus button*/
+.child button {
+  float: left;
+  font: inherit;
+  color: inherit;
+  text-transform: inherit;
+  font-weight: bold;
+  line-height: 26px;
+  color: #a9a9a9;
+  width: 38px;
+  padding-left: 14px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-right: 14px;
+  background-color: #f2f2f2;
+  border: 0;
+  cursor: pointer;
+}
+.adults button:hover, /*Наведение*/
+.child button:hover {
+  color: black;
+}
+.adults button:active, /*Нажатие*/
+.child button:active {
+  color: #81b3d2;
+}
+.search { /*Кнопка Найти*/
+  float: right;
+  width: 457px;
+  background-color: #81b3d2;
+  font-family: "PT Sans", "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 26px;
+  color: white;
+  text-transform: uppercase;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  margin-right: 55px;
+  margin-top: 54px;
+  margin-bottom: 55px;
+  border: none;
+  cursor: pointer;
+}
+.search:hover { /*Наведение*/
+  background-color: #669ec0;
+}
+.search:active { /*Нажатие*/
+  color: rgba(255, 255, 255, 0.3);
+  background-color: #5496bd;
+}
+
+
+
 .main-footer {
   position: absolute;
   width: 100%;
   bottom: 0;
   left: 0;
   background: rgba(255, 255, 255, 0.9);
-  /*net style*/
-  outline: 2px solid red;
+}
+.inner-footer {
 }
 .one-third-width {
   float: left;
   width: 33.33%;
   text-align: center;
-  /*net style*/
-  outline: 1px solid yellow;
-  /*min-height: 330px;*/
 }
 .visitsedona {
   display: inline-block;
@@ -292,23 +559,70 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   font-size: 21px;
   line-height: 26px;
   text-decoration: none;
+  font-weight: bold;
   margin-top: 47px;
   margin-bottom: 47px;
 }
 .social {
   display: inline-block;
   vertical-align: top;
-  background: black;
+  background: black url("../img/sprite.png") no-repeat;
   font-size: 0;
   vertical-align: top;
   text-decoration: none;
   margin-top: 36px;
   margin-bottom: 36px;
-  margin-right: 6px;
+  margin-right: 5px;
   width: 46px;
   height: 48px;
-  /*net style*/
-  outline: 3px solid red;
+}
+
+.social-tw {
+  background-position: 0 0;
+}
+.social-tw:hover {
+  background-position: -139px 0;
+}
+.social-tw:active {
+  background-position: -278px 0;
+}
+.social-fb {
+  background-position: -47px 0;
+}
+.social-fb:hover {
+  background-position: -186.5px 0;
+}
+.social-fb:active {
+  background-position: -325px 0;
+}
+.social-play {
+  background-position: -93px 0;
+}
+.social-play:hover {
+  background-position: -232px 0;
+}
+.social-play:active {
+  background-position: -371px 0;
+}
+.website-by {
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 47px;
+  margin-right: 10px;
+}
+.author {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 41px;
+  width: 113px;
+  height: 39px;
+  background: white url("../img/footer_logo.png") no-repeat;
+}
+.author:hover {
+  background: white url("../img/footer_logo_hvr.png") no-repeat;
+}
+.author:active {
+  background: white url("../img/footer_logo_down.png") no-repeat;
 }
 .interactive-map img {
   width: 100%;
@@ -323,29 +637,163 @@ form.filter{
   background-image: url("../img/catalog_background.jpg");
   background-repeat: no-repeat;
   padding-top: 28px;
+  font-family: "PT Sans", "Arial", sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 26px;
+  color: white;
+  text-transform: uppercase;
   /*net style*/
   outline: 2px solid red;
 }
+form.filter legend {
+  font-weight: bold;
+  font-size: 16px;
+}
 .filter-left {
   float: left;
-  max-width: 241px;
+  /*min-width: 153px;
+  max-width: 253px;*/
+  width: 142px;
+  margin: 0;
+  padding: 0;
   margin-left: 73px;
+}
+.filter-left input {
+  float: left;
+  margin-right: 20px;
+}
+.filter-left label {
+  float: left;
+  margin-right: 35px;
 }
 .filter-middle {
   float: left;
   max-width: 241px;
 }
+/*Сложный фильтр*/
 .filter-right {
   float: right;
-  max-width: 330px;
+  position: relative;
+  width: 330px;
   margin-right: 73px;
+  color: white;
 }
+.filter-right legend {
+  margin-bottom: 12px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 21px;
+}
+.from-to {
+  position: relative;
+  right: 0;
+  height: 32px;
+  margin-bottom: 20px;
+  font-size: 0; /*Обнуляем размер для того, чтобы убрать пробелы*/
+  border: 2px solid #ffffff;
+  border-radius: 2px;
+}
+.from-to::after { /*Перемычка между двумя полями*/
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  width: 2px;
+  height: 22px;
+  background: white;
+  transform: translate(-50%, -50%);
+}
+
+.from-to label {
+  display: inline-block;
+  margin: 0;
+  width: 90px;
+  padding-left: 65px;
+  font-size: 14px;
+  line-height: 21px;
+  padding-top: 4.5px;
+  padding-bottom: 4.5px;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+.from-to input {
+  position: absolute;
+  margin-right: 20px;
+  width: 50px;
+  font-size: 14px;
+  line-height: 21px;
+  padding-top: 6.5px; /*рамки по 1 px не учитываются (36-21)/2 = 7,5*/
+  padding-bottom: 6.5px;
+  color: inherit;
+  background: none;
+  border: none;
+
+  outline: 2px solid red;
+}
+
+.range-controls {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.range-controls .scale {
+  height: 2px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.range-controls .bar {
+  width: 80%;
+  height: 2px;
+  background: white;
+}
+.range-toggle {
+  position: absolute;
+  top: -9px;
+  width: 4px;
+  height: 4px;
+  background: #ababab;
+  border: 8px solid #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 1px 0 rgba(0, 1, 1, 0.2);
+  cursor: pointer;
+}
+
+.range-toggle:hover {
+  background: #1c4f80;
+}
+
+.range-toggle-min {
+  left: 0;
+}
+
+.range-toggle-max {
+  left: 80%;
+}
+.btn-transparent {
+  display: block;
+  margin: 0 auto;
+  padding: 6px 35px;
+  font-size: 14px;
+  line-height: 20px;
+  color: white;
+  text-transform: uppercase;
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.btn-transparent:hover {
+  color: black;
+  background: white;
+}
+/**/
 .found-footer {
   background-color: white;
-  padding-top: 33px;
-  /*net style*/
-  outline: 2px solid blue;
-  min-height: 87px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 .found-footer-left {
   float: left;
@@ -355,66 +803,193 @@ form.filter{
   float: right;
   padding-right: 73px;
 }
+.found-footer-left h2 {
+  display: inline-block;
+}
+.sorting,
+.sorting p,
 .sorting a {
   display: inline-block;
+  font-size: 0;
+  text-decoration: none;
+}
+.sorting p {
+  margin-left: 48px;
+  margin-right: 39px;
+  font-size: 12px;
+  line-height: 18px;
+}
+.sorting a {
+  margin-right: 32px;
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(0, 0, 0, 0.3);
+  border-bottom: dotted 1px #81b3d2;
+}
+.sorting a:hover { /*Наведение*/
+  color: #81b3d2;
+}
+.sorting a:active { /*Нажатие*/
+  color: black;
+  border-bottom: none;
+}
+.sorting a.active { /*Текущая активная сортировка*/
+  color: #81b3d2;
+  border-bottom: 0;
+}
+.found-footer-right a {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+}
+.found-footer-right a.up { /*Создаем треугольник СОРТ.ВВЕРХ через свойство border*/
+  border-bottom: 10px solid #cccccc;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  margin-right: 10px;
+}
+.found-footer-right a.up:hover { /*Наведение (вверх)*/
+  border-bottom-color: black;
+}
+.found-footer-right a.up:active, /*Нажатие (вверх)*/
+.found-footer-right a.up.active { /*Текущая активная сортировка (вверх)*/
+  border-bottom-color: #81b3d2;
+}
+.found-footer-right a.down { /*Создаем треугольник СОРТ.ВНИЗ через свойство border*/
+  border-top: 10px solid #cccccc;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+.found-footer-right a.down:hover { /*Наведение (вниз)*/
+  border-top-color: black;
+}
+.found-footer-right a.down:active, /*Нажатие (вниз)*/
+.found-footer-right a.down.active { /*Текущая активная сортировка (вниз)*/
+  border-top-color: #81b3d2;
 }
 
 .found-hotels {
   background-color: white;
-  /*net style*/
-  outline: 2px solid red;
 }
 .found-hotels-amara {
-  position: relative;
-  padding-top: 8px;
-  padding-bottom: 30px;
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
-  /*net style*/
-  /*outline: 2px solid blue;*/
 }
 .found-hotels-desert {
   position: relative;
-  padding-top: 8px;
-  padding-bottom: 30px;
-  border-top: 1px solid #e5e5e5;
-  border-bottom: 1px solid #e5e5e5;
-  /*net style*/
-  /*outline: 2px solid blue;*/
 }
 .found-hotels-villas {
   position: relative;
-  padding-top: 8px;
-  padding-bottom: 30px;
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
-  /*net style*/
-  /*outline: 2px solid blue;*/
 }
 .found-hotels-left {
   float: left;
-  padding-left: 73px;
+  margin-left: 73px;
 }
 .found-hotels-right {
+  position: relative;
   float: right;
-  padding-right: 73px;
+  height: 90px;
+  margin-right: 73px;
+  margin-top: 29px;
+  /*outline: 2px solid red;*/
+}
+.stars {
+  float: right;
+  /*margin-bottom: 47px;*/
+}
+.one-star {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  background: transparent url("../img/star.png") no-repeat;
+}
+.rating {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: inline-block;
+  width: 110px;
+  font-size: 14px;
+  line-height: 21px;
+  color: #666666;
+  background-color: #f2f2f2;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  text-align: center;
 }
 .found-hotels-link {
   position: absolute;
-  top: 30px;
+  left: 0;
+  top: 4.5px; /*Смещаем на уровень текста*/
+  width: 135px;
+  height: 90px;
 }
 .hotels-block {
-  padding-left: 165px;
+  position: relative;
+  padding-left: 165px; /* Отступ с учетом абсолютного положения картинки*/
+  margin-top: 26px; /*30px - 4px (с учетом смещения картинки)*/
+  margin-bottom: 30px;
   /*net style*/
-  outline: 2px solid red;
+  /*outline: 2px solid red;*/
 }
 .found-hotels-title {
   font-weight: bold;
   font-size: 21px;
+  line-height: 26px;
+  margin-bottom: 7px;
 }
-.hotels-type-block {
+.found-hotels-title:hover { /*Наведение*/
+
+}
+.hotels-type-block { /*ВОПРОС Почему если делаю здесь размер шрифта 0, а в .hotels-type-block p возвращаю размер, все настройки сбиваются?? Здесь нет в этом необходимости получается, но все же...*/
+  font-size: 14px;
+  line-height: 21px;
+  margin-bottom: 14px;
+}
+.hotels-type-block p{
+  display: inline-block;
 }
 .found-hotels-type {
+  width: 110px;
+  margin-right: 6px;
 }
 .found-hotels-price {
+  width: 142px;
+}
+.found-hotels-more a{
+  display: inline-block;
+  font-size: 14px;
+  line-height: 21px;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+.found-hotels-more .more {
+  width: 110px;
+  background-color: #81b3d2;
+  margin-right: 6px;
+}
+.found-hotels-more .more:hover { /*Наведение*/
+  background-color: #669ec0;
+}
+.found-hotels-more .more:active { /*Нажатие*/
+  color: rgba(255, 255, 255, 0.3);
+  background-color: #5496bd;
+}
+.found-hotels-more .reserve {
+  width: 142px;
+  background-color: #766357;
+}
+.found-hotels-more .reserve:hover { /*Наведение*/
+  background-color: #604e43;
+}
+.found-hotels-more .reserve:active { /*Нажатие*/
+  color: rgba(255, 255, 255, 0.3);
+  background-color: #503e33;
 }

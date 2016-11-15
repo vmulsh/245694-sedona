@@ -54,12 +54,18 @@
                 <legend>Стоимость в сутки (Р):</legend>
                 <div class="from-to">
                   <label for="from">ОТ</label>
-                  <input type="number" name="from" id="from" value="0">
+                  <input type="text" name="from" id="from" value="0">
                   <label for="to">ДО</label>
-                  <input type="number" name="to" id="to" value="3000">
+                  <input type="text" name="to" id="to" value="3000">
                 </div>
-                <input type="range" name="price-per-day"> <!-- Эту часть пока не понимаю, жду нужного урока -->
-                <button type="submit" class="show">Показать</button>
+                <div class="range-controls">
+                  <div class="scale">
+                    <div class="bar"></div>
+                  </div>
+                  <div class="range-toggle range-toggle-min"></div>
+                  <div class="range-toggle range-toggle-max"></div>
+                </div>
+                <button class="btn-transparent" type="submit" class="show">Показать</button>
             </fieldset>
            </form>
           <section class="found-footer clearfix">
@@ -67,21 +73,21 @@
               <h2>Найдено: <span class="found-footer-number">3</span></h2>
               <div class="sorting">
                 <p>сортировка</p>
-                <a class="chosen" href="#">По цене</a>
+                <a class="active" href="#">По цене</a>
                 <a href="#">По типу</a>
                 <a href="#">По рейтингу</a>
               </div>
             </div>
             <div class="found-footer-right">
               <a class="up" href="#"></a>
-              <a class="down" href="#"></a>
+              <a class="down active" href="#"></a>
             </div>
           </section>
           <section class="found-hotels">
             <article class="found-hotels-amara clearfix">
               <div class="found-hotels-left">
-                <a class="found-hotels-link" href="#"><img src="img/amara_hotel.jpg" width="135" height="90" alt="Amara Resort & SPA"></a>
                 <div class="hotels-block">
+                  <a class="found-hotels-link" href="#"><img src="img/amara_hotel.jpg" width="135" height="90" alt="Amara Resort & SPA"></a>
                   <h2 class="found-hotels-title">Amara Resort & SPA</h2>
                   <div class="hotels-type-block">
                     <p class="found-hotels-type">гостиница</p>
@@ -107,8 +113,8 @@
             </article>
             <article class="found-hotels-desert clearfix">
               <div class="found-hotels-left">
-                <a class="found-hotels-link" href="#"><img src="img/desert_hotel.jpg" width="135" height="90" alt="Desert Quail Inn"></a>
                 <div class="hotels-block">
+                  <a class="found-hotels-link" href="#"><img src="img/desert_hotel.jpg" width="135" height="90" alt="Desert Quail Inn"></a>
                   <h2 class="found-hotels-title">Desert Quail Inn</h2>
                   <div class="hotels-type-block">
                     <p class="found-hotels-type">мотель</p>
@@ -132,8 +138,8 @@
             </article>
             <article class="found-hotels-villas clearfix">
               <div class="found-hotels-left">
-                <a class="found-hotels-link" href="#"><img src="img/villas_hotel.jpg" width="135" height="90" alt="Villas At Poco Diablo"></a>
                 <div class="hotels-block">
+                  <a class="found-hotels-link" href="#"><img src="img/villas_hotel.jpg" width="135" height="90" alt="Villas At Poco Diablo"></a>
                   <h2 class="found-hotels-title">Villas At Poco Diablo</h2>
                   <div class="hotels-type-block">
                     <p class="found-hotels-type">апартаменты</p>
@@ -158,12 +164,12 @@
             </article>
           </section>
       </main>
-      <footer class="main-footer clearfix">
+      <footer class="inner-footer clearfix">
         <div class="one-third-width">
           <a class="visitsedona" href="#">#visitsedona</a>
         </div>
         <div class="one-third-width">
-          <a class="social social-vk" href="#">Вконтакте</a>
+          <a class="social social-tw" href="#">Твиттер</a>
           <a class="social social-fb" href="#">Фейсбук</a>
           <a class="social social-play" href="#">Плей</a>
         </div>
