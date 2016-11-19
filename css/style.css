@@ -1,10 +1,53 @@
+/*Подключаем иконочный шрифт для input check (в остальном справился без него)*/
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+
+  font-family: "symbols-sedona";
+  src: url("../fonts/symbols-sedona.woff") format("woff"),
+       url("../fonts/symbols-sedona.woff2") format("woff2");
+}
+
+[class^="icon-"]::before,
+[class*=" icon-"]::before {
+  display: inline-block;
+  width: 1em;
+  /*margin-right: 0.2em;
+  margin-left: 0.2em;*/
+  color: white;
+
+  font-weight: normal;
+  line-height: 1em;
+  font-family: "symbols-sedona";
+  text-align: center;
+  text-transform: none;
+  text-decoration: inherit;
+  font-style: normal;
+  font-variant: normal;
+
+  speak: none;
+}
+
+.icon-facebook::before { content: "\66"; } /* "f" */
+.icon-twitter::before { content: "\74"; } /* "t" */
+.icon-up-dir::before { content: "\25b2"; } /* "▲" */
+.icon-down-dir::before { content: "\25bc"; } /* "▼" */
+.icon-star::before { content: "\2605"; } /* "★" */
+.icon-check-off::before { content: "\2610"; } /* "☐" */
+.icon-check-on::before { content: "\2611"; } /* "☑" */
+.icon-calendar::before { content: "\e800"; } /* "" */
+.icon-plus::before { content: "\e801"; } /* "" */
+.icon-minus::before { content: "\e802"; } /* "" */
+.icon-youtube::before { content: "\f39e"; } /* "" */
+
+
 body {
   background-color: #f2f2f2;
   font-family: "PT Sans", "Arial", sans-serif;
   font-weight: normal;
   font-size: 14px;
   line-height: 26px;
-  color: black;
+  color: #000000;
   font-weight: normal;
   text-transform: uppercase;
   padding: 0;
@@ -16,7 +59,7 @@ input {
   margin: 0; /*В normalize.css добавлены маргины сверху и снизу для p. Обнуляем, мне они мешают*/
 }
 
-.clearfix::after { /*ВОПРОС Как все-таки правильно с 1 двоеточием или двумя??*/
+.clearfix::after {
       content: "";
       display: table;
       clear: both;
@@ -29,7 +72,7 @@ input {
   max-width: 1200px;
   min-width: 768px;
   margin: 0 auto;
-  background-color: white;
+  background-color: #ffffff;
 }
 
 /*Шапка и меню*/
@@ -38,7 +81,7 @@ input {
   position: relative;
 }
 .main-navigation {
-  background-color: white;
+  background-color: #ffffff;
   padding: 0;
 }
 .main-navigation ul {
@@ -61,7 +104,7 @@ input {
 }
 .main-navigation a {
   font-weight: bold;
-  color: black;
+  color: #000000;
   text-decoration: none;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -86,19 +129,16 @@ input {
   width: 138px;
   height: 70px;
   left: 50%;
-  margin-left: -74px; /*Смещаем влево на половину рисунка, чтобы оставить по центру, т.к. left выставляет левый край логотипа на середину*/
+  margin-left: -69px; /*Смещаем влево на половину рисунка, чтобы оставить по центру, т.к. left выставляет левый край логотипа на середину*/
   z-index: 10;
 }
 
 /* Основной блок */
 
-.full-width { /*ВОПРОС Получается бесполезный класс раз есть центровщик?*/
-}
-.main {
-}
 .main-sedona {
   position: relative;
-  height: 508px; /*ВОПРОС надо избавиться от высоты здесь?*/
+  /*height: 508px;*/
+  padding-top: 42.4%; /*способ задания высоты через процент, обнуляя основную высоту*/
   background: #ffffff url("../img/sedona_background.jpg") no-repeat 50% 50%;
   background-size: cover;
   margin-bottom: 57px;
@@ -107,13 +147,21 @@ div .welcome,
 div .gorgeous,
 div .sedona,
 div .reason {
-  visibility: hidden; /*Скрываем текст из верстки, чтобы заменить его на картинку*/
+  font-size: 0;
+  line-height: 0; /*Скрываем текст из верстки, чтобы заменить его на картинку*/
+}
+.main-sedona-textimg {
+  position: absolute;
+  top: 15.35%;
+  width: 38.17%; /*458px / 1200px*/
+  left: 9.33%; /*112px / 1200px*/
+  transform: translate(50%, 0);
 }
 div .main-sedona img { /*Картинка с текстом поверх фона с горами. Фон качество 50% jpg, текст png*/
-  position: absolute;
-  top: 78px;
-  left: 50%; /*Для масштабирования*/
-  margin-left: -229px;
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: auto;
 }
 .sub-sedona {
   text-align: center;
@@ -130,18 +178,23 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   color: #333333;
 }
 
-/*Для класса .benefits не придумал, что написать*/
-.benefits {}
-
+.benefits {
+}
 .city-block {
   position: relative;
   background-color: #81b3d2;
-  color: white;
+  color: #ffffff;
   line-height: 21px;
   text-align: center;
 }
 .one-third-width {
+  float: left;
   width: 33.3%;
+  box-sizing: border-box;
+  padding-top: 55px;
+  padding-bottom: 25px;
+  padding-left: 4.5%;
+  padding-right: 4.5%;
 }
 .two-third-width {
   width: 66.7%;
@@ -155,52 +208,47 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   top: 0;
   right: 0;
   height: 100%;
-  background: url("../img/picture_of_sedona1_768.jpg") no-repeat 50% 50%;
-  background-size: cover;
+  background: #81b3d2 url("../img/picture_of_sedona1_768.jpg") no-repeat 50% 50%;
+  background-size: cover;;
 }
 .city-block-title {
   font-size: 21px;
   font-weight: bold;
-  margin-top: 56px;
   margin-bottom: 25px;
 }
-.city-block-number {
-  position: relative;
-  margin-bottom: 25px;
-}
-.city-block-number::before {
-  position: absolute;
+
+.block-number::before, /*Знак тире слева и справа от цифры. Для блока .reasons-block меняем только цвет*/
+.block-number::after {
+  display: inline-block;
   content: "";
-  bottom: 9px;
-  left: 50%;
-  margin-left: -25px; /*весь блок + 16px*/
+  vertical-align: middle;
   width: 9px;
   height: 2px;
-  background-color: white;
+  margin-bottom: 2px;
+  background-color: #ffffff;
 }
-.city-block-number::after {
-  position: absolute;
-  content: "";
-  bottom: 9px;
-  margin-left: 3px;
-  width: 9px;
-  height: 2px;
-  background-color: white;
+.block-number::before {
+  margin-right: 5px;
 }
+.block-number::after {
+  margin-left: 5px;
+}
+.reasons-block .block-number::before,
+.reasons-block .block-number::after {
+  background-color: #a8a8a8;
+}
+
 .city-block-descr {
-  padding-left: 50px;
-  padding-right: 50px;
-  margin-bottom: 45px;
+  margin-top: 25px;
 }
 
 .features-block {
   line-height: 21px;
   text-align: center;
-  margin-bottom: 85px;
 }
-.features-block-item {
-  float: left;
-  width: 33.33%;
+.features-block .one-third-width {
+  padding-top: 165px;
+  padding-bottom: 83px;
 }
 .features-block-house {
   background-image: url("../img/house.png");
@@ -220,19 +268,16 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
 .features-block-title {
   font-size: 21px;
   font-weight: bold;
-  margin-top: 165px;
   margin-bottom: 28px;
 }
-.features-block-descr { /*ВОПРОС На 768 текст отображается не так, как в макете. Как исправить?*/
-  max-width: 286px;
-  padding-left: 46px;
-  padding-right: 46px;
+.features-block-descr {
   color: #333333;
 }
+
 .diablo-block {
   position: relative;
   background-color: #81b3d2;
-  color: white;
+  color: #ffffff;
   line-height: 21px;
   text-align: center;
 }
@@ -240,46 +285,22 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%; /*Почему без высоты не работает??*/
-  background: url("../img/picture_of_sedona2_768.jpg") no-repeat 50% 50%;
+  height: 100%;
+  background: #81b3d2 url("../img/picture_of_sedona2_768.jpg") no-repeat 50% 50%;
   background-size: cover;
 }
 .diablo-block > .one-third-width {
   float: right;
+  padding-left: 4%;
+  padding-right: 4%;
 }
 .diablo-block-title {
   font-size: 21px;
   font-weight: bold;
-  margin-top: 56px;
   margin-bottom: 25px;
-}
-.diablo-block-number {
-  position: relative;
-  margin-bottom: 25px;
-}
-.diablo-block-number::before {
-  position: absolute;
-  content: "";
-  bottom: 9px;
-  left: 50%;
-  margin-left: -25px; /*весь блок + 16px*/
-  width: 9px;
-  height: 2px;
-  background-color: white;
-}
-.diablo-block-number::after {
-  position: absolute;
-  content: "";
-  bottom: 9px;
-  margin-left: 3px;
-  width: 9px;
-  height: 2px;
-  background-color: white;
 }
 .diablo-block-descr {
-  padding-left: 40px;
-  padding-right: 40px;
-  margin-bottom: 45px;
+  margin-top: 25px;
 }
 
 .reasons-block {
@@ -287,49 +308,26 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   text-align: center;
   background-color: #eeeeee;
 }
-.reasons-block > .one-third-width {
-  float: left;
-  width: 33.33%;
+.reasons-block .one-third-width {
+  padding-top: 50px;
+  padding-bottom: 61px;
+}
+.reasons-block .one-third-width:nth-child(2) {
+  padding-left: 5%;
+  padding-right: 5%;
 }
 .reasons-block-title {
   font-size: 21px;
   font-weight: bold;
-  margin-top: 56px;
   margin-bottom: 25px;
 }
-.reasons-block-number {
-  position: relative;
-  margin-bottom: 25px;
-  color: #333333;
-}
-.reasons-block-number::before {
-  position: absolute;
-  content: "";
-  bottom: 9px;
-  left: 50%;
-  margin-left: -25px; /*весь блок + 16px*/
-  width: 9px;
-  height: 2px;
-  background-color: #a8a8a8;
-}
-.reasons-block-number::after {
-  position: absolute;
-  content: "";
-  bottom: 9px;
-  margin-left: 3px;
-  width: 9px;
-  height: 2px;
-  background-color: #a8a8a8;
-}
+
 .reasons-block-descr {
-  padding-left: 60px;
-  padding-right: 60px;
-  margin-bottom: 45px;
   color: #333333;
+  margin-top: 25px;
 }
 
 .interested-in {
-  /*position: relative;*/ /*ВОПРОС И без него форма встает на свое место почему-то...*/
   padding-top: 60px;
   text-align: center;
 }
@@ -355,7 +353,9 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   padding-top: 30px;
   padding-bottom: 30px;
 }
-.hotel-search { /*Форма для поиска*/
+
+/*Форма для поиска*/
+.hotel-search {
   position: absolute;
   width: 568px;
   left: 50%;
@@ -364,13 +364,17 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   text-align: left;
 }
 .search-form {
+  padding-top: 55px;
+  padding-bottom: 55px;
+  padding-left: 60px;
+  padding-right: 55px;
 }
-.search-form fieldset { /*Убираем границу у fieldset*/
-  /*border: none;*/
+.search-form fieldset, { /*Убираем границу у fieldset*/
   position: relative;
   padding: 0;
   margin: 0;
-  border: 0;
+  border: 1;
+  margin-bottom: 30px;
 }
 .search-form label { /*Настраиваем отображение подписей форм*/
   font-size: 14px;
@@ -384,7 +388,6 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   margin: 0;
 }
 .search-form input { /*Настраиваем форму для ввода данных*/
-  /*float: right;*/
   font: inherit;
   color: inherit;
   text-transform: inherit;
@@ -395,8 +398,6 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   padding-top: 6px;
   padding-bottom: 6px;
   margin: 0;
-  margin-right: 55px;
-/*  margin-bottom: 29px;*/
   background-color: #f2f2f2;
   border: 0;
 }
@@ -413,76 +414,69 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   margin: 0;
   padding-left: 14px;;
 }
-.date-in-field label {
+.search-form label {
   float: left;
-  margin-left: 60px;
-  margin-top: 64px;
+  width: 106px; /*108 px*/
+  line-height: 38px;
+  cursor: pointer;
 }
-.date-in-field input {
-  position: relative;
+.date-in-field input,
+.date-out-field input {
   float: right;
-  margin-top: 55px;
 }
-.date-in-field:after, /*calendar создаем календарь в конце input*/
-.date-out-field:after {
+.adults-child-field .align-left {
+  float: left;
+  width: 50%;
+}
+.adults-child-field .align-right {
+  float: right;
+  width: 178px;
+}
+.adults-child-field .align-right label {
+  width: 65px;
+}
+.adults-child-field .adults {
+  float: left;
+  margin-bottom: 0;
+}
+.adults-child-field .child {
+  float: right;
+  margin-bottom: 0;
+}
+.search-form .adults-child-field {
+  margin-bottom: 55px;
+}
+
+.date-in-field::after, /*Календари*/
+.date-out-field::after {
   content: "";
   position: absolute;
-  right: 65px;
+  right: 9px;
   bottom: 9px;
   width: 21px;
   height: 22px;
   background: transparent url("../img/calendar_normal.png") no-repeat 0 0;
   cursor: pointer;
 }
-.date-in-field:hover:after,
-.date-out-field:hover:after {
+.date-in-field:hover::after,
+.date-out-field:hover::after {
   content: "";
   position: absolute;
-  right: 65px;
+  right: 9px;
   bottom: 9px;
   width: 21px;
   height: 22px;
   background: transparent url("../img/calendar_hvr.png") no-repeat 0 0;
 }
-.date-in-field:active:after,
-.date-out-field:active:after {
+.date-in-field:active::after,
+.date-out-field:active::after {
   content: "";
   position: absolute;
-  right: 65px;
+  right: 9px;
   bottom: 9px;
   width: 21px;
   height: 22px;
   background: transparent url("../img/calendar_down.png") no-repeat 0 0;
-}
-.date-out-field label {
-  float: left;
-  margin-left: 60px;
-  margin-top: 37px;
-}
-.date-out-field input {
-  float: right;
-  margin-top: 30px;
-}
-.adults-child-field .align-left {
-  float: left;
-  margin-left: 167px;
-  margin-top: 30px;
-}
-.adults-child-field .align-left label { /*Позиционируем относительно общего блока fieldset, чтобы выровнять текст по одной линии*/
-  position: absolute;
-  left: 60px;
-  top: 38px;
-}
-.adults-child-field .align-right {
-  position: relative;
-  float: right;
-  margin-right: 55px;
-  margin-top: 30px;
-}
-.adults-child-field .align-right label { /*Позиционируем относительно строки input*/
-  position: absolute;
-  left: -65px;
-  top: 9px;
 }
 
 .adults button, /*plus button & minus button*/
@@ -512,8 +506,7 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   color: #81b3d2;
 }
 .search { /*Кнопка Найти*/
-  float: right;
-  width: 457px;
+  width: 100%;
   background-color: #81b3d2;
   font-family: "PT Sans", "Arial", sans-serif;
   font-weight: bold;
@@ -523,9 +516,6 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   text-transform: uppercase;
   padding-top: 16px;
   padding-bottom: 16px;
-  margin-right: 55px;
-  margin-top: 54px;
-  margin-bottom: 55px;
   border: none;
   cursor: pointer;
 }
@@ -537,8 +527,7 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   background-color: #5496bd;
 }
 
-
-
+/*Футер*/
 .main-footer {
   position: absolute;
   width: 100%;
@@ -548,30 +537,30 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
 }
 .inner-footer {
 }
-.one-third-width {
-  float: left;
+.main-footer .one-third-width,
+.inner-footer .one-third-width {
+  display: inline-block;
+  padding-top: 36px;
+  padding-bottom: 36px;
+  vertical-align: middle;
   width: 33.33%;
   text-align: center;
 }
 .visitsedona {
   display: inline-block;
-  color: black;
+  vertical-align: middle;
+  color: #000000;
   font-size: 21px;
-  line-height: 26px;
+  line-height: 48px; /*чтобы уравнять до 120px высоту. Можно без этого обойтись???*/
   text-decoration: none;
   font-weight: bold;
-  margin-top: 47px;
-  margin-bottom: 47px;
 }
 .social {
   display: inline-block;
-  vertical-align: top;
   background: black url("../img/sprite.png") no-repeat;
   font-size: 0;
   vertical-align: top;
   text-decoration: none;
-  margin-top: 36px;
-  margin-bottom: 36px;
   margin-right: 5px;
   width: 46px;
   height: 48px;
@@ -606,14 +595,13 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
 }
 .website-by {
   display: inline-block;
-  vertical-align: top;
-  padding-top: 47px;
+  vertical-align: middle;
   margin-right: 10px;
+  line-height: 48px;
 }
 .author {
   display: inline-block;
-  vertical-align: top;
-  margin-top: 41px;
+  vertical-align: middle;
   width: 113px;
   height: 39px;
   background: white url("../img/footer_logo.png") no-repeat;
@@ -633,51 +621,69 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
 
 /*CSS for catalog.html*/
 
-form.filter{
+form.filter {
   background-image: url("../img/catalog_background.jpg");
   background-repeat: no-repeat;
   padding-top: 28px;
+  padding-bottom: 32px;
+  padding-left: 6%;
+  padding-right: 6%;
   font-family: "PT Sans", "Arial", sans-serif;
   font-weight: normal;
   font-size: 14px;
   line-height: 26px;
-  color: white;
+  color: #ffffff;
   text-transform: uppercase;
-  /*net style*/
-  outline: 2px solid red;
+}
+.filter fieldset { /*Убираем границу у fieldset*/
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border: none;
 }
 form.filter legend {
   font-weight: bold;
   font-size: 16px;
 }
-.filter-left {
-  float: left;
-  /*min-width: 153px;
-  max-width: 253px;*/
-  width: 142px;
-  margin: 0;
-  padding: 0;
-  margin-left: 73px;
-}
-.filter-left input {
-  float: left;
-  margin-right: 20px;
-}
-.filter-left label {
-  float: left;
-  margin-right: 35px;
-}
+.filter-left,
 .filter-middle {
   float: left;
-  max-width: 241px;
+  width: 153px;
 }
+.filter fieldset.filter-left {
+  margin-right: 9%;
+}
+
+.filter-checkbox input[type="checkbox"] {
+  display: none;
+}
+.filter-checkbox {
+  position: relative;
+  display: block;
+  width: auto;
+  padding-left: 40px;
+  cursor: pointer;
+  margin-top: 18px;
+}
+
+.checkbox-indicator::before { /*Добавляем нужную иконку вместо чекбокса*/
+  position: absolute;
+  left: 0;
+  font-family: "symbols-sedona";
+  font-size: 26px;
+  content: "\2610";
+  margin-right: 5px;
+}
+.filter-checkbox input[type="checkbox"]:checked + .checkbox-indicator::before{ /*Иконка при выборе меняется*/
+  content: "\2611";
+}
+
 /*Сложный фильтр*/
 .filter-right {
   float: right;
   position: relative;
-  width: 330px;
-  margin-right: 73px;
-  color: white;
+  width: 31.3%;
+  color: #ffffff;
 }
 .filter-right legend {
   margin-bottom: 12px;
@@ -687,7 +693,8 @@ form.filter legend {
 }
 .from-to {
   position: relative;
-  right: 0;
+  right: -3.5%;
+  width: 96%;
   height: 32px;
   margin-bottom: 20px;
   font-size: 0; /*Обнуляем размер для того, чтобы убрать пробелы*/
@@ -701,15 +708,14 @@ form.filter legend {
   right: 50%;
   width: 2px;
   height: 22px;
-  background: white;
+  background: #ffffff;
   transform: translate(-50%, -50%);
 }
 
 .from-to label {
   display: inline-block;
-  margin: 0;
-  width: 90px;
-  padding-left: 65px;
+  width: 27.3%;
+  padding-left: 19.7%;
   font-size: 14px;
   line-height: 21px;
   padding-top: 4.5px;
@@ -719,22 +725,18 @@ form.filter legend {
 }
 
 .from-to input {
-  position: absolute;
-  margin-right: 20px;
-  width: 50px;
-  font-size: 14px;
-  line-height: 21px;
-  padding-top: 6.5px; /*рамки по 1 px не учитываются (36-21)/2 = 7,5*/
-  padding-bottom: 6.5px;
+  margin-left: 5px;
+  width: 56%; /*50px*/
   color: inherit;
+  font: inherit;
   background: none;
   border: none;
-
-  outline: 2px solid red;
 }
 
 .range-controls {
   position: relative;
+  right: -3.5%;
+  width: 96%;
   margin-bottom: 32px;
 }
 
@@ -746,7 +748,7 @@ form.filter legend {
 .range-controls .bar {
   width: 80%;
   height: 2px;
-  background: white;
+  background: #ffffff;
 }
 .range-toggle {
   position: absolute;
@@ -759,15 +761,12 @@ form.filter legend {
   box-shadow: 0 2px 1px 0 rgba(0, 1, 1, 0.2);
   cursor: pointer;
 }
-
 .range-toggle:hover {
   background: #1c4f80;
 }
-
 .range-toggle-min {
   left: 0;
 }
-
 .range-toggle-max {
   left: 80%;
 }
@@ -777,36 +776,36 @@ form.filter legend {
   padding: 6px 35px;
   font-size: 14px;
   line-height: 20px;
-  color: white;
+  color: #ffffff;
   text-transform: uppercase;
   background: transparent;
-  border: 2px solid white;
+  border: 2px solid #ffffff;
   border-radius: 2px;
   cursor: pointer;
 }
-
 .btn-transparent:hover {
   color: black;
   background: white;
 }
 /**/
+
 .found-footer {
   background-color: white;
   padding-top: 30px;
   padding-bottom: 30px;
+  padding-left: 6%;
+  padding-right: 6%;
 }
-.found-footer-left {
+.found-footer-left { /*Ширину до сортировки, процент макс ширины для родителя*/
   float: left;
-  padding-left: 73px;
 }
 .found-footer-right {
   float: right;
-  padding-right: 73px;
 }
 .found-footer-left h2 {
   display: inline-block;
 }
-.sorting,
+.sorting, /*Ширину задать ФИКСИРОВАННУЮ*/
 .sorting p,
 .sorting a {
   display: inline-block;
@@ -871,33 +870,36 @@ form.filter legend {
 .found-hotels {
   background-color: white;
 }
+.found-hotels-amara,
+.found-hotels-desert,
+.found-hotels-villas {
+  position: relative;
+  padding-left: 6%;
+  padding-right: 6%;
+  padding-top: 26px;
+  padding-bottom: 30px;
+}
 .found-hotels-amara {
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
 }
 .found-hotels-desert {
-  position: relative;
 }
 .found-hotels-villas {
-  position: relative;
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
 }
 .found-hotels-left {
   float: left;
-  margin-left: 73px;
 }
-.found-hotels-right {
+.found-hotels-right { /*добавить максимальную ширину фиксированная для 5 звезд*/
   position: relative;
   float: right;
   height: 90px;
-  margin-right: 73px;
-  margin-top: 29px;
-  /*outline: 2px solid red;*/
 }
 .stars {
   float: right;
-  /*margin-bottom: 47px;*/
+  max-width: 130px;
 }
 .one-star {
   display: inline-block;
@@ -930,21 +932,23 @@ form.filter legend {
 .hotels-block {
   position: relative;
   padding-left: 165px; /* Отступ с учетом абсолютного положения картинки*/
-  margin-top: 26px; /*30px - 4px (с учетом смещения картинки)*/
-  margin-bottom: 30px;
-  /*net style*/
-  /*outline: 2px solid red;*/
 }
 .found-hotels-title {
+  display: block;
+  text-decoration: none;
+  color: #000000;
   font-weight: bold;
   font-size: 21px;
   line-height: 26px;
   margin-bottom: 7px;
 }
 .found-hotels-title:hover { /*Наведение*/
-
+  color: #81b3d2;
 }
-.hotels-type-block { /*ВОПРОС Почему если делаю здесь размер шрифта 0, а в .hotels-type-block p возвращаю размер, все настройки сбиваются?? Здесь нет в этом необходимости получается, но все же...*/
+.found-hotels-title:active { /*Нажатие*/
+  color: #cacaca;
+}
+.hotels-type-block {
   font-size: 14px;
   line-height: 21px;
   margin-bottom: 14px;

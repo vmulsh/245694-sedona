@@ -34,29 +34,45 @@
            <form class="filter clearfix" action="https://echo.htmlacademy.ru" method="post">
             <fieldset class="filter-left">
                 <legend>Инфраструктура:</legend>
-                <input type="checkbox" name="pool" id="pool" checked>
-                <label for="pool">бассейн</label>
-                <input type="checkbox" name="parking" id="parking">
-                <label for="parking">парковка</label>
-                <input type="checkbox" name="wi-fi" id="wi-fi">
-                <label for="wi-fi">wi-fi</label>
+                <label class="filter-checkbox" for="pool">
+                  <input type="checkbox" name="pool" id="pool" checked>
+                  <span class="checkbox-indicator"></span>
+                  бассейн
+                </label>
+                <label class="filter-checkbox" for="parking">
+                  <input type="checkbox" name="parking" id="parking">
+                  <span class="checkbox-indicator"></span>
+                  парковка
+                </label>
+                <label class="filter-checkbox" for="wi-fi">
+                  <input type="checkbox" name="wi-fi" id="wi-fi">
+                  <span class="checkbox-indicator"></span>
+                  wi-fi
+                </label>
             </fieldset>
             <fieldset class="filter-middle">
                 <legend>Тип жилья:</legend>
-                <input type="checkbox" name="hotel" id="hotel" checked>
-                <label for="hotel">отель</label>
-                <input type="checkbox" name="motel" id="motel" checked>
-                <label for="motel">мотель</label>
-                <input type="checkbox" name="apps" id="apps" checked>
-                <label for="apps">апартаменты</label>
+                <label class="filter-checkbox" for="hotel">
+                  <input type="checkbox" name="hotel" id="hotel" checked>
+                  <span class="checkbox-indicator"></span>
+                  отель
+                </label>
+                <label class="filter-checkbox" for="motel">
+                  <input type="checkbox" name="motel" id="motel" checked>
+                  <span class="checkbox-indicator"></span>
+                  мотель
+                </label>
+                <label class="filter-checkbox" for="apps">
+                  <input type="checkbox" name="apps" id="apps" checked>
+                  <span class="checkbox-indicator"></span>
+                  апартаменты
+                </label>
             </fieldset>
             <fieldset class="filter-right">
                 <legend>Стоимость в сутки (Р):</legend>
                 <div class="from-to">
-                  <label for="from">ОТ</label>
-                  <input type="text" name="from" id="from" value="0">
-                  <label for="to">ДО</label>
-                  <input type="text" name="to" id="to" value="3000">
+                  <label for="from">ОТ<input type="text" name="from" id="from" value="0"></label>
+                  <label for="to">ДО<input type="text" name="to" id="to" value="3000"></label>
                 </div>
                 <div class="range-controls">
                   <div class="scale">
@@ -88,7 +104,7 @@
               <div class="found-hotels-left">
                 <div class="hotels-block">
                   <a class="found-hotels-link" href="#"><img src="img/amara_hotel.jpg" width="135" height="90" alt="Amara Resort & SPA"></a>
-                  <h2 class="found-hotels-title">Amara Resort & SPA</h2>
+                  <a class="found-hotels-title" href="#">Amara Resort & SPA</a>
                   <div class="hotels-type-block">
                     <p class="found-hotels-type">гостиница</p>
                     <p class="found-hotels-price">от 3500 Р.</p>
@@ -115,7 +131,7 @@
               <div class="found-hotels-left">
                 <div class="hotels-block">
                   <a class="found-hotels-link" href="#"><img src="img/desert_hotel.jpg" width="135" height="90" alt="Desert Quail Inn"></a>
-                  <h2 class="found-hotels-title">Desert Quail Inn</h2>
+                  <a class="found-hotels-title" href="#">Desert Quail Inn</a>
                   <div class="hotels-type-block">
                     <p class="found-hotels-type">мотель</p>
                     <p class="found-hotels-price">от 2000 Р.</p>
@@ -140,7 +156,7 @@
               <div class="found-hotels-left">
                 <div class="hotels-block">
                   <a class="found-hotels-link" href="#"><img src="img/villas_hotel.jpg" width="135" height="90" alt="Villas At Poco Diablo"></a>
-                  <h2 class="found-hotels-title">Villas At Poco Diablo</h2>
+                  <a class="found-hotels-title" href="#">Villas At Poco Diablo</a>
                   <div class="hotels-type-block">
                     <p class="found-hotels-type">апартаменты</p>
                     <p class="found-hotels-price">от 4000 Р.</p>
