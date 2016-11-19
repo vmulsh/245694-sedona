@@ -355,7 +355,8 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
 }
 
 /*Форма для поиска*/
-.hotel-search {
+.hotel-search { /*По умолчанию скрыт блок, открываем его с помощью JS*/
+  /*display: none;*/
   position: absolute;
   width: 568px;
   left: 50%;
@@ -363,17 +364,20 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   background-color: white;
   text-align: left;
 }
+/*.hotel-search-show {
+  display: block;
+}*/
 .search-form {
   padding-top: 55px;
   padding-bottom: 55px;
   padding-left: 60px;
   padding-right: 55px;
 }
-.search-form fieldset, { /*Убираем границу у fieldset*/
+.search-form fieldset { /*Убираем границу у fieldset*/
   position: relative;
   padding: 0;
   margin: 0;
-  border: 1;
+  border: 0;
   margin-bottom: 30px;
 }
 .search-form label { /*Настраиваем отображение подписей форм*/
