@@ -11,7 +11,7 @@
   <div class="main-align">
       <header class="main-header">
         <div class="logo">
-          <a href="#"><img src="img/logo.png" width="138" height="70" alt="City of Sedona"></a>
+          <a href="index.html"><img src="img/logo.png" width="138" height="70" alt="City of Sedona"></a>
         </div>
         <nav class="main-navigation">
           <ul>
@@ -25,7 +25,7 @@
               <a href="#">Карта штата</a>
             </li>
             <li>
-              <a href="#">Гостиницы</a>
+              <a href="catalog.html">Гостиницы</a>
             </li>
           </ul>
         </nav>
@@ -113,17 +113,17 @@
                     <div class="align-left">
                       <label for="adults-count">взрослые:</label>
                         <fieldset class="adults">
-                          <button type="minus-button" class="">-</button>
-                          <input type="number" value="2" min="0" step="1" name="adults-count" id="adults-count" class="adults-count">
-                          <button type="plus-button" class="">+</button>
+                          <button class="minus-button" id="minus-button-adults">-</button>
+                          <input class="adults-count" type="number" value="2" name="adults-count" id="adults-count">
+                          <button class="plus-button" id="plus-button-adults">+</button>
                         </fieldset>
                     </div>
                     <div class="align-right">
                       <label for="child-count">дети:</label>
                         <fieldset class="child">
-                          <button type="minus-button" class="">-</button>
-                          <input type="number" value="0" min="0" step="1" name="child-count" id="child-count" class="child-count">
-                          <button type="plus-button" class="">+</button>
+                          <button class="minus-button" id="minus-button-child">-</button>
+                          <input class="child-count" type="number" value="0" min="0" step="1" name="child-count" id="child-count">
+                          <button class="plus-button" id="plus-button-child">+</button>
                         </fieldset>
                     </div>
                   </fieldset>
@@ -133,7 +133,8 @@
             </div>
           <div class="full-width">
             <div class="interactive-map">
-              <img src="img/interactive_map.jpg" width="1200" height="473" alt="Interactive map">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1127115.6007908573!2d-112.13531723767994!3d34.84012579357321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x872da132f942b00d%3A0x5548c523fa6c8efd!2z0KHQtdC00L7QvdCwLCDQkNGA0LjQt9C-0L3QsCA4NjMzNiwg0KHQqNCQ!5e0!3m2!1sru!2sru!4v1479662403442" width="1200" height="593" frameborder="0" style="border:1" allowfullscreen></iframe>
+              <img src="img/interactive_map.jpg" width="1200" height="593" alt="Interactive map">
             </div>
           </div>
       </main>
@@ -152,15 +153,6 @@
         </div>
       </footer>
   </div>
-  <!---
-  <script>
-    var but = document.querySelector(".hotel-search-button");
-    var SearchBlock = document.querySelector(".hotel-search");
-    but.addEventListener("click",function(event){
-      event.preventDefault();
-      SearchBlock.classList.add("hotel-search-show");
-    });
-  </script>
--->
+  <script src="js/js_main.js"></script>
   </body>
 </html>

@@ -355,8 +355,29 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
 }
 
 /*Форма для поиска*/
+@keyframes popup {  /*Анимация для появляющейся формы*/
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes hide {  /*Анимация для появляющейся формы*/
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}
+
 .hotel-search { /*По умолчанию скрыт блок, открываем его с помощью JS*/
-  /*display: none;*/
+  display: none;
   position: absolute;
   width: 568px;
   left: 50%;
@@ -364,9 +385,15 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   background-color: white;
   text-align: left;
 }
-/*.hotel-search-show {
+.hotel-search-show {
   display: block;
-}*/
+  animation-name: popup;
+  animation-duration: 1.2s;
+}
+.hotel-search-hide {
+  animation-name: hide;
+  animation-duration: 1.2s;
+}
 .search-form {
   padding-top: 55px;
   padding-bottom: 55px;
@@ -414,9 +441,10 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
 }
 .search-form input[type=number] { /*Редактируем форму с цифрами*/
   float: left;
-  width: 20px; /*Всего 114, на плюс и минус по 40, итого 114 - 80 = 34*/
+  width: 34px; /*Всего 114, на плюс и минус по 40, итого 114 - 80 = 34*/
   margin: 0;
-  padding-left: 14px;;
+  padding-left: 0;
+  text-align: center;
 }
 .search-form label {
   float: left;
@@ -537,17 +565,19 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   width: 100%;
   bottom: 0;
   left: 0;
+  padding-top: 36px;
+  padding-bottom: 36px;
   background: rgba(255, 255, 255, 0.9);
 }
 .inner-footer {
+  padding-top: 36px;
+  padding-bottom: 36px;
 }
 .main-footer .one-third-width,
 .inner-footer .one-third-width {
+  padding: 0;
   display: inline-block;
-  padding-top: 36px;
-  padding-bottom: 36px;
   vertical-align: middle;
-  width: 33.33%;
   text-align: center;
 }
 .visitsedona {
@@ -616,10 +646,19 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
 .author:active {
   background: white url("../img/footer_logo_down.png") no-repeat;
 }
+.interactive-map iframe {
+  width: 100%;
+  max-height: 593px;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+}
 .interactive-map img {
+  display: none;
   width: 100%;
   height: auto;
-  display: inline-block;
+  /*display: inline-block;*/
   vertical-align: middle;
 }
 
@@ -680,6 +719,12 @@ form.filter legend {
 }
 .filter-checkbox input[type="checkbox"]:checked + .checkbox-indicator::before{ /*Иконка при выборе меняется*/
   content: "\2611";
+}
+.checkbox-indicator:hover::before {
+  color: #ffffff;
+}
+.checkbox-indicator.disabled::before { /*Для отключенных чекбоксов (необходимо добавить дополнительный класс disabled к span.checkbox-indicator)*/
+  color: #6a6a6a;
 }
 
 /*Сложный фильтр*/
@@ -926,12 +971,18 @@ form.filter legend {
   padding-bottom: 3px;
   text-align: center;
 }
-.found-hotels-link {
+.found-hotels-link { /*Задаем фиксированные размеры оберточного блока для картинки*/
   position: absolute;
   left: 0;
   top: 4.5px; /*Смещаем на уровень текста*/
   width: 135px;
   height: 90px;
+}
+.found-hotels-link img { /*Картинке задаем максимальную ширину и высоту не больше оберточного блока*/
+  display: block;
+  border-style: none;
+  max-width: 100%;
+  max-height: 100%;
 }
 .hotels-block {
   position: relative;
