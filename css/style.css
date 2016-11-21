@@ -14,7 +14,7 @@
   width: 1em;
   /*margin-right: 0.2em;
   margin-left: 0.2em;*/
-  color: white;
+  color: #ffffff;
 
   font-weight: normal;
   line-height: 1em;
@@ -345,7 +345,7 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   display: inline-block;
   width: 568px;
   background-color: #766357;
-  color: white;
+  color: #ffffff;
   font-size: 21px;
   line-height: 26px;
   text-decoration: none;
@@ -382,7 +382,7 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   width: 568px;
   left: 50%;
   margin-left: -284px;
-  background-color: white;
+  background-color: #ffffff;
   text-align: left;
 }
 .hotel-search-show {
@@ -424,6 +424,7 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   text-transform: inherit;
   font-weight: bold;
   line-height: 26px;
+  height: 26px;
   width: 330px;
   padding-left: 15px;
   padding-top: 6px;
@@ -437,7 +438,7 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
 }
 .search-form input:active,
 .search-form input:focus {
-  background-color: white;
+  background-color: #ffffff;
 }
 .search-form input[type=number] { /*Редактируем форму с цифрами*/
   float: left;
@@ -531,7 +532,7 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
 }
 .adults button:hover, /*Наведение*/
 .child button:hover {
-  color: black;
+  color: #000000;
 }
 .adults button:active, /*Нажатие*/
 .child button:active {
@@ -544,7 +545,7 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   font-weight: bold;
   font-size: 21px;
   line-height: 26px;
-  color: white;
+  color: #ffffff;
   text-transform: uppercase;
   padding-top: 16px;
   padding-bottom: 16px;
@@ -591,7 +592,7 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
 }
 .social {
   display: inline-block;
-  background: black url("../img/sprite.png") no-repeat;
+  background: #000000 url("../img/sprite.png") no-repeat;
   font-size: 0;
   vertical-align: top;
   text-decoration: none;
@@ -638,20 +639,21 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   vertical-align: middle;
   width: 113px;
   height: 39px;
-  background: white url("../img/footer_logo.png") no-repeat;
+  background: #ffffff url("../img/footer_logo.png") no-repeat;
 }
 .author:hover {
-  background: white url("../img/footer_logo_hvr.png") no-repeat;
+  background: #ffffff url("../img/footer_logo_hvr.png") no-repeat;
 }
 .author:active {
-  background: white url("../img/footer_logo_down.png") no-repeat;
+  background: #ffffff url("../img/footer_logo_down.png") no-repeat;
 }
 .interactive-map iframe {
   width: 100%;
   max-height: 593px;
   display: inline-block;
   vertical-align: middle;
-  border: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
   box-sizing: border-box;
 }
 .interactive-map img {
@@ -665,8 +667,10 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
 /*CSS for catalog.html*/
 
 form.filter {
+  background-color: #81b3d2;
   background-image: url("../img/catalog_background.jpg");
   background-repeat: no-repeat;
+  background-size: cover;
   padding-top: 28px;
   padding-bottom: 32px;
   padding-left: 6%;
@@ -833,26 +837,29 @@ form.filter legend {
   cursor: pointer;
 }
 .btn-transparent:hover {
-  color: black;
-  background: white;
+  color: #000000;
+  background: #ffffff;
 }
 /**/
 
 .found-footer {
-  background-color: white;
+  background-color: #ffffff;
   padding-top: 30px;
   padding-bottom: 30px;
   padding-left: 6%;
   padding-right: 6%;
 }
-.found-footer-left { /*Ширину до сортировки, процент макс ширины для родителя*/
+.found-footer-left {
   float: left;
+  max-width: 90%;
 }
 .found-footer-right {
   float: right;
+  max-width: 10%;
 }
 .found-footer-left h2 {
   display: inline-block;
+  width: 165px;
 }
 .sorting, /*Ширину задать ФИКСИРОВАННУЮ*/
 .sorting p,
@@ -862,8 +869,7 @@ form.filter legend {
   text-decoration: none;
 }
 .sorting p {
-  margin-left: 48px;
-  margin-right: 39px;
+  width: 115px;
   font-size: 12px;
   line-height: 18px;
 }
@@ -878,7 +884,7 @@ form.filter legend {
   color: #81b3d2;
 }
 .sorting a:active { /*Нажатие*/
-  color: black;
+  color: #000000;
   border-bottom: none;
 }
 .sorting a.active { /*Текущая активная сортировка*/
@@ -897,7 +903,7 @@ form.filter legend {
   margin-right: 10px;
 }
 .found-footer-right a.up:hover { /*Наведение (вверх)*/
-  border-bottom-color: black;
+  border-bottom-color: #000000;
 }
 .found-footer-right a.up:active, /*Нажатие (вверх)*/
 .found-footer-right a.up.active { /*Текущая активная сортировка (вверх)*/
@@ -909,7 +915,7 @@ form.filter legend {
   border-right: 5px solid transparent;
 }
 .found-footer-right a.down:hover { /*Наведение (вниз)*/
-  border-top-color: black;
+  border-top-color: #000000;
 }
 .found-footer-right a.down:active, /*Нажатие (вниз)*/
 .found-footer-right a.down.active { /*Текущая активная сортировка (вниз)*/
@@ -917,7 +923,7 @@ form.filter legend {
 }
 
 .found-hotels {
-  background-color: white;
+  background-color: #ffffff;
 }
 .found-hotels-amara,
 .found-hotels-desert,
@@ -940,10 +946,13 @@ form.filter legend {
 }
 .found-hotels-left {
   float: left;
+  max-width: 470px;
 }
 .found-hotels-right { /*добавить максимальную ширину фиксированная для 5 звезд*/
   position: relative;
   float: right;
+  min-width: 135px;
+  max-width: 155px;
   height: 90px;
 }
 .stars {
@@ -1024,7 +1033,7 @@ form.filter legend {
   line-height: 21px;
   text-decoration: none;
   text-align: center;
-  color: white;
+  color: #ffffff;
   font-weight: bold;
   padding-top: 3px;
   padding-bottom: 3px;

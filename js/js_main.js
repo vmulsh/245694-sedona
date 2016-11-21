@@ -34,7 +34,6 @@ button.addEventListener("click",function(event){
 // Начало
 adultsCount.addEventListener("change",function(element){
   adultsCountValue = parseInt(adultsCount.value,10); //Текущее значение id="adults-count"
-  adultsCount.value = adultsCountValue.replace('+', '');
   if (isNaN(adultsCountValue)) {
     adultsCount.value = 0;
   } else if (adultsCountValue < 0) {
