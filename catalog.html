@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&amp;subset=cyrillic" rel="stylesheet">
   </head>
   <body>
-    <div class="main-align">
+    <div class="main-align"> <!-- Основной центровщик -->
       <header class="main-header">
         <div class="logo">
           <a href="index.html"><img src="img/logo.png" width="138" height="70" alt="City of Sedona"></a>
@@ -25,160 +25,160 @@
               <a href="#">Карта штата</a>
             </li>
             <li>
-              <a href="catalog.html">Гостиницы</a>
+              <a class="active" href="catalog.html">Гостиницы</a>
             </li>
           </ul>
         </nav>
       </header>
-     <main>
-           <form class="filter clearfix" action="https://echo.htmlacademy.ru" method="post">
-            <fieldset class="filter-left">
-                <legend>Инфраструктура:</legend>
-                <label class="filter-checkbox" for="pool">
-                  <input type="checkbox" name="pool" id="pool" checked>
-                  <span class="checkbox-indicator"></span>
-                  бассейн
-                </label>
-                <label class="filter-checkbox" for="parking">
-                  <input type="checkbox" name="parking" id="parking">
-                  <span class="checkbox-indicator"></span>
-                  парковка
-                </label>
-                <label class="filter-checkbox" for="wi-fi">
-                  <input type="checkbox" name="wi-fi" id="wi-fi">
-                  <span class="checkbox-indicator"></span>
-                  wi-fi
-                </label>
-            </fieldset>
-            <fieldset class="filter-middle">
-                <legend>Тип жилья:</legend>
-                <label class="filter-checkbox" for="hotel">
-                  <input type="checkbox" name="hotel" id="hotel" checked>
-                  <span class="checkbox-indicator"></span>
-                  отель
-                </label>
-                <label class="filter-checkbox" for="motel">
-                  <input type="checkbox" name="motel" id="motel" checked>
-                  <span class="checkbox-indicator"></span>
-                  мотель
-                </label>
-                <label class="filter-checkbox" for="apps">
-                  <input type="checkbox" name="apps" id="apps" checked>
-                  <span class="checkbox-indicator"></span>
-                  апартаменты
-                </label>
-            </fieldset>
-            <fieldset class="filter-right">
-                <legend>Стоимость в сутки (Р):</legend>
-                <div class="from-to">
-                  <label for="from">ОТ<input type="text" name="from" id="from" value="0"></label>
-                  <label for="to">ДО<input type="text" name="to" id="to" value="3000"></label>
+      <main>
+        <form class="filter clearfix" action="https://echo.htmlacademy.ru" method="post">
+          <fieldset class="filter-left">
+            <legend>Инфраструктура:</legend>
+            <label class="filter-checkbox" for="pool">
+              <input type="checkbox" name="pool" id="pool" checked>
+              <span class="checkbox-indicator"></span>
+              бассейн
+            </label>
+            <label class="filter-checkbox" for="parking">
+              <input type="checkbox" name="parking" id="parking">
+              <span class="checkbox-indicator"></span>
+              парковка
+            </label>
+            <label class="filter-checkbox" for="wi-fi">
+              <input type="checkbox" name="wi-fi" id="wi-fi">
+              <span class="checkbox-indicator"></span>
+              wi-fi
+            </label>
+          </fieldset>
+          <fieldset class="filter-middle">
+            <legend>Тип жилья:</legend>
+            <label class="filter-checkbox" for="hotel">
+              <input type="checkbox" name="hotel" id="hotel" checked>
+              <span class="checkbox-indicator"></span>
+              гостиница
+            </label>
+            <label class="filter-checkbox" for="motel">
+              <input type="checkbox" name="motel" id="motel" checked>
+              <span class="checkbox-indicator"></span>
+              мотель
+            </label>
+            <label class="filter-checkbox" for="apps">
+              <input type="checkbox" name="apps" id="apps" checked>
+              <span class="checkbox-indicator"></span>
+              апартаменты
+            </label>
+          </fieldset>
+          <fieldset class="filter-right">
+            <legend>Стоимость в сутки (Р):</legend>
+            <div class="from-to">
+              <label for="from">ОТ<input type="text" name="from" id="from" value="0"></label>
+              <label for="to">ДО<input type="text" name="to" id="to" value="3000"></label>
+            </div>
+            <div class="range-controls">
+              <div class="scale">
+                <div class="bar"></div>
+              </div>
+              <div class="range-toggle range-toggle-min"></div>
+              <div class="range-toggle range-toggle-max"></div>
+            </div>
+            <button class="btn-transparent" type="submit">Показать</button>
+          </fieldset>
+        </form>
+        <section class="found-footer clearfix">
+          <div class="found-footer-left">
+            <h2>Найдено: <span class="found-footer-number">3</span></h2>
+            <div class="sorting">
+              <p>сортировка</p>
+              <a class="active" href="#">По цене</a>
+              <a href="#">По типу</a>
+              <a href="#">По рейтингу</a>
+            </div>
+          </div>
+          <div class="found-footer-right">
+            <a class="up" href="#"></a>
+            <a class="down active" href="#"></a>
+          </div>
+        </section>
+        <section class="found-hotels">
+          <article class="found-hotels-amara clearfix">
+            <div class="found-hotels-left">
+              <div class="hotels-block">
+                <a class="found-hotels-link" href="#"><img src="img/amara_hotel.jpg" width="135" height="90" alt="Amara Resort & SPA"></a>
+                <a class="found-hotels-title" href="#">Amara Resort & SPA</a>
+                <div class="hotels-type-block">
+                  <p class="found-hotels-type">гостиница</p>
+                  <p class="found-hotels-price">от 3500 Р.</p>
                 </div>
-                <div class="range-controls">
-                  <div class="scale">
-                    <div class="bar"></div>
-                  </div>
-                  <div class="range-toggle range-toggle-min"></div>
-                  <div class="range-toggle range-toggle-max"></div>
+                <div class="found-hotels-more">
+                  <a href="#" class="more">Подробнее</a>
+                  <a href="#" class="reserve">Забронировать</a>
                 </div>
-                <button class="btn-transparent" type="submit">Показать</button>
-            </fieldset>
-           </form>
-          <section class="found-footer clearfix">
-            <div class="found-footer-left">
-              <h2>Найдено: <span class="found-footer-number">3</span></h2>
-              <div class="sorting">
-                <p>сортировка</p>
-                <a class="active" href="#">По цене</a>
-                <a href="#">По типу</a>
-                <a href="#">По рейтингу</a>
               </div>
             </div>
-            <div class="found-footer-right">
-              <a class="up" href="#"></a>
-              <a class="down active" href="#"></a>
+            <div class="found-hotels-right">
+              <div class="stars">
+                <span class="one-star"></span>
+                <span class="one-star"></span>
+                <span class="one-star"></span>
+                <span class="one-star"></span>
+              </div>
+              <div class="rating">
+                Рейтинг: <span class="rating-number">8,5</span>
+              </div>
             </div>
-          </section>
-          <section class="found-hotels">
-            <article class="found-hotels-amara clearfix">
-              <div class="found-hotels-left">
-                <div class="hotels-block">
-                  <a class="found-hotels-link" href="#"><img src="img/amara_hotel.jpg" width="135" height="90" alt="Amara Resort & SPA"></a>
-                  <a class="found-hotels-title" href="#">Amara Resort & SPA</a>
-                  <div class="hotels-type-block">
-                    <p class="found-hotels-type">гостиница</p>
-                    <p class="found-hotels-price">от 3500 Р.</p>
-                  </div>
-                  <div class="found-hotels-more">
-                    <a href="#" class="more">Подробнее</a>
-                    <a href="#" class="reserve">Забронировать</a>
-                  </div>
+          </article>
+          <article class="found-hotels-desert clearfix">
+            <div class="found-hotels-left">
+              <div class="hotels-block">
+                <a class="found-hotels-link" href="#"><img src="img/desert_hotel.jpg" width="135" height="90" alt="Desert Quail Inn"></a>
+                <a class="found-hotels-title" href="#">Desert Quail Inn</a>
+                <div class="hotels-type-block">
+                  <p class="found-hotels-type">мотель</p>
+                  <p class="found-hotels-price">от 2000 Р.</p>
+                </div>
+                <div class="found-hotels-more">
+                  <a href="#" class="more">Подробнее</a>
+                  <a href="#" class="reserve">Забронировать</a>
                 </div>
               </div>
-              <div class="found-hotels-right">
-                <div class="stars">
-                  <span class="one-star"></span>
-                  <span class="one-star"></span>
-                  <span class="one-star"></span>
-                  <span class="one-star"></span>
+            </div>
+            <div class="found-hotels-right">
+              <div class="stars">
+                <span class="one-star"></span>
+                <span class="one-star"></span>
+              </div>
+              <div class="rating">
+                Рейтинг: <span class="rating-number">8,9</span>
+              </div>
+            </div>
+          </article>
+          <article class="found-hotels-villas clearfix">
+            <div class="found-hotels-left">
+              <div class="hotels-block">
+                <a class="found-hotels-link" href="#"><img src="img/villas_hotel.jpg" width="135" height="90" alt="Villas At Poco Diablo"></a>
+                <a class="found-hotels-title" href="#">Villas At Poco Diablo</a>
+                <div class="hotels-type-block">
+                  <p class="found-hotels-type">апартаменты</p>
+                  <p class="found-hotels-price">от 4000 Р.</p>
                 </div>
-                <div class="rating">
-                  Рейтинг: <span class="rating-number">8,5</span>
+                <div class="found-hotels-more">
+                  <a class="more" href="#">Подробнее</a>
+                  <a class="reserve" href="#">Забронировать</a>
                 </div>
               </div>
-            </article>
-            <article class="found-hotels-desert clearfix">
-              <div class="found-hotels-left">
-                <div class="hotels-block">
-                  <a class="found-hotels-link" href="#"><img src="img/desert_hotel.jpg" width="135" height="90" alt="Desert Quail Inn"></a>
-                  <a class="found-hotels-title" href="#">Desert Quail Inn</a>
-                  <div class="hotels-type-block">
-                    <p class="found-hotels-type">мотель</p>
-                    <p class="found-hotels-price">от 2000 Р.</p>
-                  </div>
-                  <div class="found-hotels-more">
-                    <a href="#" class="more">Подробнее</a>
-                    <a href="#" class="reserve">Забронировать</a>
-                  </div>
-                </div>
+            </div>
+            <div class="found-hotels-right">
+              <div class="stars">
+                <span class="one-star"></span>
+                <span class="one-star"></span>
+                <span class="one-star"></span>
               </div>
-              <div class="found-hotels-right">
-                <div class="stars">
-                  <span class="one-star"></span>
-                  <span class="one-star"></span>
-                </div>
-                <div class="rating">
-                  Рейтинг: <span class="rating-number">8,9</span>
-                </div>
+              <div class="rating">
+                Рейтинг: <span class="rating-number">9,2</span>
               </div>
-            </article>
-            <article class="found-hotels-villas clearfix">
-              <div class="found-hotels-left">
-                <div class="hotels-block">
-                  <a class="found-hotels-link" href="#"><img src="img/villas_hotel.jpg" width="135" height="90" alt="Villas At Poco Diablo"></a>
-                  <a class="found-hotels-title" href="#">Villas At Poco Diablo</a>
-                  <div class="hotels-type-block">
-                    <p class="found-hotels-type">апартаменты</p>
-                    <p class="found-hotels-price">от 4000 Р.</p>
-                  </div>
-                  <div class="found-hotels-more">
-                    <a class="more" href="#">Подробнее</a>
-                    <a class="reserve" href="#">Забронировать</a>
-                  </div>
-                </div>
-              </div>
-              <div class="found-hotels-right">
-                <div class="stars">
-                  <span class="one-star"></span>
-                  <span class="one-star"></span>
-                  <span class="one-star"></span>
-                </div>
-                <div class="rating">
-                  Рейтинг: <span class="rating-number">9,2</span>
-                </div>
-              </div>
-            </article>
-          </section>
+            </div>
+          </article>
+        </section>
       </main>
       <footer class="inner-footer clearfix">
         <div class="one-third-width">

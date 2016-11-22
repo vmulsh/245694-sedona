@@ -2,7 +2,6 @@
 @font-face {
   font-weight: normal;
   font-style: normal;
-
   font-family: "symbols-sedona";
   src: url("../fonts/symbols-sedona.woff") format("woff"),
        url("../fonts/symbols-sedona.woff2") format("woff2");
@@ -11,11 +10,9 @@
 [class^="icon-"]::before,
 [class*=" icon-"]::before {
   display: inline-block;
+  vertical-align: middle;
   width: 1em;
-  /*margin-right: 0.2em;
-  margin-left: 0.2em;*/
   color: #ffffff;
-
   font-weight: normal;
   line-height: 1em;
   font-family: "symbols-sedona";
@@ -24,7 +21,6 @@
   text-decoration: inherit;
   font-style: normal;
   font-variant: normal;
-
   speak: none;
 }
 
@@ -39,7 +35,6 @@
 .icon-plus::before { content: "\e801"; } /* "" */
 .icon-minus::before { content: "\e802"; } /* "" */
 .icon-youtube::before { content: "\f39e"; } /* "" */
-
 
 body {
   background-color: #f2f2f2;
@@ -60,9 +55,9 @@ input {
 }
 
 .clearfix::after {
-      content: "";
-      display: table;
-      clear: both;
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /*CSS for index.html*/
@@ -92,6 +87,7 @@ input {
 }
 .main-navigation li {
   display: inline-block;
+  vertical-align: middle;
   width: 20%;
   vertical-align: top;
   text-align: center;
@@ -101,6 +97,10 @@ input {
 }
 .main-navigation li:nth-child(2) { /*Между 2 и 3 элементами меню оставляем место для логотипа*/
   margin-right: 20%;
+}
+.main-navigation li:last-child { /*Специально для соответствия pixelperfect последнему элементу*/
+  width: 18%;
+  padding-left: 2%;
 }
 .main-navigation a {
   font-weight: bold;
@@ -115,13 +115,13 @@ input {
 .main-navigation a:active { /*Ссылка при нажатии*/
   color: rgba(0, 0, 0, 0.3);
 }
-.main-navigation a.active { /*Ссылка при нажатии*/
+.main-navigation a.active { /*Активное состояние меню*/
   color: #766357;
 }
-.main-navigation a.active:hover { /*Ссылка при нажатии*/
+.main-navigation a.active:hover { /*Ссылка при наведении на активное состояние меню*/
   color: #604e43;
 }
-.main-navigation a.active:active { /*Ссылка при нажатии*/
+.main-navigation a.active:active { /*Ссылка при нажатии на активное состояние меню*/
   color: rgba(118, 99, 87, 0.3);
 }
 .logo { /* Логотип */
@@ -152,10 +152,9 @@ div .reason {
 }
 .main-sedona-textimg {
   position: absolute;
-  top: 15.35%;
+  top: 15.10%;
   width: 38.17%; /*458px / 1200px*/
-  left: 9.33%; /*112px / 1200px*/
-  transform: translate(50%, 0);
+  left: 30.90%; /*370px / 1200px*/
 }
 div .main-sedona img { /*Картинка с текстом поверх фона с горами. Фон качество 50% jpg, текст png*/
   max-width: 100%;
@@ -172,14 +171,12 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   font-weight: bold;
   font-size: 21px;
   line-height: 26px;
-  margin-bottom: 30px;
+  margin-bottom: 27px;
 }
 .sedona-reasons {
   color: #333333;
 }
 
-.benefits {
-}
 .city-block {
   position: relative;
   background-color: #81b3d2;
@@ -191,8 +188,8 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   float: left;
   width: 33.3%;
   box-sizing: border-box;
-  padding-top: 55px;
-  padding-bottom: 25px;
+  padding-top: 50px; /*55*/
+  padding-bottom: 51px; /*25*/
   padding-left: 4.5%;
   padding-right: 4.5%;
 }
@@ -216,8 +213,11 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   font-weight: bold;
   margin-bottom: 25px;
 }
-
-.block-number::before, /*Знак тире слева и справа от цифры. Для блока .reasons-block меняем только цвет*/
+.city-block-descr {
+  margin-top: 22px;
+}
+/*Знак тире слева и справа от цифры. Для блока .reasons-block меняем только цвет*/
+.block-number::before,
 .block-number::after {
   display: inline-block;
   content: "";
@@ -237,10 +237,7 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
 .reasons-block .block-number::after {
   background-color: #a8a8a8;
 }
-
-.city-block-descr {
-  margin-top: 25px;
-}
+/**/
 
 .features-block {
   line-height: 21px;
@@ -312,6 +309,7 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   padding-top: 50px;
   padding-bottom: 61px;
 }
+.reasons-block .one-third-width:nth-child(1),
 .reasons-block .one-third-width:nth-child(2) {
   padding-left: 5%;
   padding-right: 5%;
@@ -319,16 +317,16 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
 .reasons-block-title {
   font-size: 21px;
   font-weight: bold;
-  margin-bottom: 25px;
+  margin-bottom: 23px;
 }
 
 .reasons-block-descr {
   color: #333333;
-  margin-top: 25px;
+  margin-top: 23px;
 }
 
 .interested-in {
-  padding-top: 60px;
+  padding-top: 55px;
   text-align: center;
 }
 .interested {
@@ -337,12 +335,13 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   line-height: 24px;
 }
 .interested-dates {
-  padding-top: 43px;
+  padding-top: 30px;
   line-height: 24px;
-  margin-bottom: 50px;
+  margin-bottom: 47px;
 }
 .hotel-search-button { /*Кнопка поиска отеля, оформлена как ссылка*/
   display: inline-block;
+  vertical-align: middle;
   width: 568px;
   background-color: #766357;
   color: #ffffff;
@@ -359,20 +358,32 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   0% {
     opacity: 0;
     transform: scale(0.5);
+      -webkit-transform: scale(0.5);
+      -moz-transform: scale(0.5);
+      -o-transform: scale(0.5);
   }
   100% {
     opacity: 1;
     transform: scale(1);
+      -webkit-transform: scale(1);
+      -moz-transform: scale(1);
+      -o-transform: scale(1);
   }
 }
-@keyframes hide {  /*Анимация для появляющейся формы*/
+@keyframes hide {  /*Анимация для прячущейся формы*/
   0% {
     opacity: 1;
     transform: scale(1);
+      -webkit-transform: scale(1);
+      -moz-transform: scale(1);
+      -o-transform: scale(1);
   }
   100% {
     opacity: 0;
     transform: scale(0.5);
+      -webkit-transform: scale(0.5);
+      -moz-transform: scale(0.5);
+      -o-transform: scale(0.5);
   }
 }
 
@@ -387,12 +398,16 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
 }
 .hotel-search-show {
   display: block;
-  animation-name: popup;
-  animation-duration: 1.2s;
+  -webkit-animation: popup 1.2s;
+  -moz-animation: popup 1.2s;
+  -o-animation: popup 1.2s;
+  animation: popup 1.2s;
 }
 .hotel-search-hide {
-  animation-name: hide;
-  animation-duration: 1.2s;
+  -webkit-animation: hide 1.2s;
+  -moz-animation: hide 1.2s;
+  -o-animation: hide 1.2s;
+  animation: hide 1.2s;
 }
 .search-form {
   padding-top: 55px;
@@ -592,11 +607,12 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
 }
 .social {
   display: inline-block;
+  vertical-align: middle;
   background: #000000 url("../img/sprite.png") no-repeat;
   font-size: 0;
-  vertical-align: top;
+
   text-decoration: none;
-  margin-right: 5px;
+  margin-right: 2px;
   width: 46px;
   height: 48px;
 }
@@ -631,8 +647,8 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
 .website-by {
   display: inline-block;
   vertical-align: middle;
-  margin-right: 10px;
-  line-height: 48px;
+  margin-right: 6px;
+  line-height: 46px;
 }
 .author {
   display: inline-block;
@@ -656,13 +672,6 @@ div .main-sedona img { /*Картинка с текстом поверх фон�
   border-right: 1px solid #ffffff;
   box-sizing: border-box;
 }
-.interactive-map img {
-  display: none;
-  width: 100%;
-  height: auto;
-  /*display: inline-block;*/
-  vertical-align: middle;
-}
 
 /*CSS for catalog.html*/
 
@@ -671,8 +680,8 @@ form.filter {
   background-image: url("../img/catalog_background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 28px;
-  padding-bottom: 32px;
+  padding-top: 25px;
+  padding-bottom: 30px;
   padding-left: 6%;
   padding-right: 6%;
   font-family: "PT Sans", "Arial", sans-serif;
@@ -698,7 +707,7 @@ form.filter legend {
   width: 153px;
 }
 .filter fieldset.filter-left {
-  margin-right: 9%;
+  margin-right: 9.8%;
 }
 
 .filter-checkbox input[type="checkbox"] {
@@ -710,7 +719,7 @@ form.filter legend {
   width: auto;
   padding-left: 40px;
   cursor: pointer;
-  margin-top: 18px;
+  margin-top: 20px;
 }
 
 .checkbox-indicator::before { /*Добавляем нужную иконку вместо чекбокса*/
@@ -735,7 +744,7 @@ form.filter legend {
 .filter-right {
   float: right;
   position: relative;
-  width: 31.3%;
+  width: 30.9%;
   color: #ffffff;
 }
 .filter-right legend {
@@ -767,6 +776,7 @@ form.filter legend {
 
 .from-to label {
   display: inline-block;
+  vertical-align: middle;
   width: 27.3%;
   padding-left: 19.7%;
   font-size: 14px;
@@ -826,7 +836,7 @@ form.filter legend {
 .btn-transparent {
   display: block;
   margin: 0 auto;
-  padding: 6px 35px;
+  padding: 6px 32px;
   font-size: 14px;
   line-height: 20px;
   color: #ffffff;
@@ -845,7 +855,7 @@ form.filter legend {
 .found-footer {
   background-color: #ffffff;
   padding-top: 30px;
-  padding-bottom: 30px;
+  padding-bottom: 22px;
   padding-left: 6%;
   padding-right: 6%;
 }
@@ -859,12 +869,14 @@ form.filter legend {
 }
 .found-footer-left h2 {
   display: inline-block;
-  width: 165px;
+  vertical-align: baseline;
+  width: 160px;
 }
 .sorting, /*Ширину задать ФИКСИРОВАННУЮ*/
 .sorting p,
 .sorting a {
   display: inline-block;
+  vertical-align: baseline;
   font-size: 0;
   text-decoration: none;
 }
@@ -948,7 +960,7 @@ form.filter legend {
   float: left;
   max-width: 470px;
 }
-.found-hotels-right { /*добавить максимальную ширину фиксированная для 5 звезд*/
+.found-hotels-right {
   position: relative;
   float: right;
   min-width: 135px;
@@ -961,16 +973,21 @@ form.filter legend {
 }
 .one-star {
   display: inline-block;
+  vertical-align: baseline;
   width: 16px;
   height: 16px;
-  margin-right: 6px;
+  margin-right: 4px;
   background: transparent url("../img/star.png") no-repeat;
+}
+.one-star:last-child { /*Обнуляем отступ справа у последнего элемента*/
+  margin-right: 0;
 }
 .rating {
   position: absolute;
   bottom: 0;
   right: 0;
   display: inline-block;
+  vertical-align: baseline;
   width: 110px;
   font-size: 14px;
   line-height: 21px;
@@ -1004,7 +1021,7 @@ form.filter legend {
   font-weight: bold;
   font-size: 21px;
   line-height: 26px;
-  margin-bottom: 7px;
+  margin-bottom: 5px;
 }
 .found-hotels-title:hover { /*Наведение*/
   color: #81b3d2;
@@ -1019,16 +1036,18 @@ form.filter legend {
 }
 .hotels-type-block p{
   display: inline-block;
+  vertical-align: middle;
 }
 .found-hotels-type {
   width: 110px;
-  margin-right: 6px;
+  margin-right: 4px;
 }
 .found-hotels-price {
   width: 142px;
 }
 .found-hotels-more a{
   display: inline-block;
+  vertical-align: baseline;
   font-size: 14px;
   line-height: 21px;
   text-decoration: none;
@@ -1041,7 +1060,7 @@ form.filter legend {
 .found-hotels-more .more {
   width: 110px;
   background-color: #81b3d2;
-  margin-right: 6px;
+  margin-right: 4px;
 }
 .found-hotels-more .more:hover { /*Наведение*/
   background-color: #669ec0;

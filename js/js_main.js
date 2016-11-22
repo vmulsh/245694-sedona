@@ -12,7 +12,7 @@ var adultsCount = document.getElementById("adults-count");
 var childCount = document.getElementById("child-count");
 
 // Часть кода для show/hide search popup
-// Начало
+// Начало1
 button.addEventListener("click",function(event){
   event.preventDefault();
     if (searchBlock.classList.contains("hotel-search-show")) {
@@ -28,10 +28,10 @@ button.addEventListener("click",function(event){
       autoFocus.focus();
     }
 });
-// Конец
+// Конец1
 
 // Часть кода для plus/minus buttons с проверкой введения текста и отрицательных значений
-// Начало
+// Начало2
 adultsCount.addEventListener("change",function(element){
   adultsCountValue = parseInt(adultsCount.value,10); //Текущее значение id="adults-count"
   if (isNaN(adultsCountValue)) {
@@ -81,4 +81,4 @@ minusButtonChild.addEventListener("click",function(element){
         childCount.value = childCountValue - 1;
     }
 });
-// Конец
+// Конец2
